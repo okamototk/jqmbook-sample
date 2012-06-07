@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css"/>
+    <style>
+		.ui-header .ui-title {
+			margin: .6em 20px .8em;
+		}
+		body {
+			background-color: rgb(240,240,240);
+		}
+    </style>
+    <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script>
+      $(document).on("mobileinit", function() {
+        $.mobile.ignoreContentEnabled = true;
+      });
+    </script>
+    <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+    <script>
+      $(document).on("pagebeforecreate", "#p-nativeform", function(e) {
+        $("select,input:not([type=range]),button,textarea").attr("data-enhance", "false");
+      });
+    </script>
+  </head>
+  <body>
+    <div data-role="page" id="p-nativeform">
+      <div data-role="header" >
+        <h1>ネイティブフォーム</h1>
+      </div>
+      <div data-role="content">
+        <form>
+          <div data-role="fieldcontain">
+            <label for="text">テキスト</label>
+            <input type="text" id="text" name="text"/>
+          </div>
+
+          <div data-role="fieldcontain">
+            <label for="switch">スイッチ</label>
+            <select name="switch" id="switch" data-role="slider">
+              <option value="off">オフ</option>
+              <option value="on">オン</option>
+            </select>
+          </div>
+          <div data-role="fieldcontain">
+            <label for="slider">スライダー</label>
+            <input type="range" name="slider" id="slider" value="0" min="0" max="100"/>
+          </div>
+
+          <div data-role="fieldcontain">
+            <fieldset data-role="controlgroup">
+              <legend>
+                チェックボックス
+              </legend>
+              <input type="checkbox" name="chk1" id="chk1"/>
+              <label for="chk1">みかん</label>
+
+              <input type="checkbox" name="chk2" id="chk2"/>
+              <label for="chk2">りんご</label>
+
+              <input type="checkbox" name="chk3" id="chk3"/>
+              <label for="chk3">もも</label>
+            </fieldset>
+          </div>
+
+          <div data-role="fieldcontain">
+            <fieldset data-role="controlgroup" data-type="horizontal">
+              <legend>
+                ラジオボタン
+              </legend>
+              <input type="radio" name="rad1" id="rad1" value="1" checked="checked" />
+              <label for="rad1">なし</label>
+              <input type="radio" name="rad2" id="rad2" value="2"/>
+              <label for="rad2">ぶどう</label>
+              <input type="radio" name="rad3" id="rad3" value="3"/>
+              <label for="rad3">いちご</label>
+            </fieldset>
+          </div>
+
+          <div data-role="fieldcontain">
+            <label for="select">選択</label>
+            <select name="selt" id="sel">
+              <option value="Tokyo">東京</option>
+              <option value="Yokohama">横浜</option>
+              <option value="Chiba">千葉</option>
+            </select>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

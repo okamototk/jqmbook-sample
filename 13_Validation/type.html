@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>type属性による入力チェック</title>
+<meta charset="utf-8" >
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" >
+<link rel="stylesheet" href="../css/custom.css" >
+<link rel="stylesheet" href="css/error.css" >
+<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script src="js/jquery.validate.js"></script>
+<script src="js/messages_ja.js"></script>
+<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+<script>
+$(document).on('pageinit', "#p-validation-type", function(e){
+  $("#form").validate({});
+});
+</script>
+</head>                                             
+<body>                                              
+<div data-role="page" id="p-validation-type">
+  <div data-role="header">
+    <h2>type属性によるチェック</h2>
+  </div>
+  <div data-role="content">
+  <p>
+    &lt;input type="xxx" ...&gt;によるtype属性で入力値のチェックを行います。
+  </p>
+  <form id="form" method="get" action="">
+    <input type="submit" class="submit" value="送信">
+
+    <hr />
+
+    <fieldset>
+      <label>メールアドレス(type=email)</label>
+      <input type="email" name="email" id="email" required />
+        (例:hoge@example.com)
+    </fieldset>
+
+    <hr />
+
+    <fieldset>
+      <label>URL(type=url)</label>
+      <input type="url" name="url" id="url" required />
+      (例:http://hogesoft.com/download/)
+    </fieldset>
+
+    <hr />
+
+    <fieldset>
+      <label>日付(type=date)</label>
+      <input type="date" value="" name="date" id="date" required />
+      (例:2012-06-16, Dec 11,2012, December 11,2012)
+    </fieldset>
+
+    <hr />
+
+    <fieldset>
+      <label>数字(type=number)</label>
+      <input type="number" value="" id="number" required />
+       (例: 1234)
+    </fieldset>
+
+    <hr />
+
+    <fieldset>
+      <label>数字(type=number min=100 max=200)</label>
+      <input type="number" min="100" max="200" name="min-max" id="min-max" required />
+       (例: 123)
+    </fieldset>
+
+    </form>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>旗取りゲーム</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css"/>
+<link rel="stylesheet" href="css/flaggame.css"/>
+<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+<script src="js/flaggame.js"></script>
+</head>
+<body>
+  <div data-role="page" id="p-top">
+    <div data-role="header">
+      <h1>旗取りゲーム</h1>
+    </div>
+    <div data-role="content" id="content">
+      <div id="field">
+        <div id="ball"></div>
+      </div>
+      <div id="elaspedview" data-role="fieldcontain">
+        経過時間: <span id="elasped">0.000</span>秒
+      </div>
+      <a href="#" data-role="button" id="start">開始</a>
+    </div>
+    <div data-role="footer">
+    </div>
+  </div>
+</body>
+</html>

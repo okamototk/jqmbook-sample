@@ -1,0 +1,11 @@
+form label.error {
+  color:red;
+  width:100%;
+  display:inline-block;
+}
+.error .ui-icon-alert {
+  padding-left:18px;
+  background-image: inherit;
+  background-position: inherit;
+  background-color: rgba(255, 0, 0, 0.6);
+}

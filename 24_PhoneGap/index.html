@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>24章 PhoneGap</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css"/>
+<link rel="stylesheet" href="../css/custom.css"/>
+<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+<script src="js/custom.js"></script>
+</head>
+<body>
+  <div data-role="page" id="p-phonegap-index">
+    <div data-role="header">
+      <a href=".." data-rel="back">戻る</a>
+      <h2>24章<br />PhoneGap</h2>
+      <a href="http://www.amazon.co.jp/gp/product/479736873X/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&tag=toraneko-22&linkCode=as2&camp=247&creative=1211&creativeASIN=479736873X">書籍</a>
+    </div>
+    <div data-role="content">
+      <h2>説明</h2>
+      <hr />
+      このフォルダのサブフォルダに4つのPhoneGapサンプルを収録しています。ブラウザ経由ではなく、<b>フォルダを直接参照</b>してご利用ください。
+      <h3>pghello/</h3>
+      PhoneGapの基礎を説明するためのHello World的なPhoneGapのサンプルです。
+      <h3>pgsample/</h3>
+      PhoneGapの各APIの使い方を紹介するためのサンプルです。
+      <h3>flaggame/</h3>
+      21章で作成した旗取りゲームのPhoneGap版です。オフラインでも遊べます。
+      <h3>photoviewer/</h3>
+      23章で作成したフォトアルバムのPhoneGap版です。
+     <p>
+      <h2>使い方</h2>
+      <hr />
+      これらのサンプルは、Eclipes、XCode、Visual Studio上でプロジェクトを作成し、各Android,iOS,Windows Phone用のアプリケーションとしてビルド、デプロイして利用する必要があります。
+      本書24章の「開発環境のセットアップ」を参照して、ひな形プロジェクトを作成し、各サンプルを開発環境上のプロジェクトのWebフォルダ(wwwフォルダ)にコピーして利用してください。
+     </p>
+     <p>
+       pgsampleとphotoviewerは、
+       <ol>
+	 <li>wwwフォルダ: スマートフォンアプリ用のファイル</li>
+	 <li>serverフォルダ: Webサーバにコピーして利用するフォルダ</li>
+       </ol>
+       に分かれています。serverフォルダには、Webサーバ(Apache)に配備するファイルが入っています。ApacheのWebフォルダにファイルをコピーして利用してください。
+    </p>
+     <h3>pgsample</h3>
+     pgsampleの中のカメラを利用するサンプル(camera.html)には、サーバーへ写真をアップロードするサンプルコードを含んでおり、アップロードを動作させるために写真を受け取るPHPファイルをApacheへコピーする必要があります。
+     <p>
+     1. serverフォルダをApacheのWebフォルダ(htdocsフォルダ)にコピーしてください。
+     </p>
+     <p>     
+     2. www/camera.htmlの下記のURLをserverフォルダの下の部分をApacheにコピーしたupload.phpにアクセスできるように書き換えてください。
+<pre>
+// upload.phpをおいたURLを指定
+UPLOADURL = "http://192.168.1.254/server/upload.php";
+var imgUrl = null;
+     </pre>
+     </p>
+     上記の例は、serverフォルダをホスト192.168.1.254上で動作するApacheのhtdocsにコピーした場合です。
+     
+     <h3>photoviewer</h3>
+     photoviewerは、サーバと通信して画像を管理します。ApacheのフォルダにPHPファイルをコピーして利用する必要があります。また、サンプルコードの中で指定しているサーバのURLを書き換える必要があります。
+     <p>
+     1. serverフォルダをApacheのWebフォルダ(htdocsフォルダ)にコピーしてください。
+     </p>
+     <p>
+       2. www/js/photoviewer.jsの先頭の下記の行を、アクセスできるURLに書き換える。
+<pre>
+BASE_URL="http://192.168.1.254/server/";
+var imgUrl = null;
+</pre>
+     </p>
+     上記の例は、serverフォルダをホスト192.168.1.254上で動作するApacheのhtdocsにコピーした場合です。<b>URLの最後に/(スラッシュ)を忘れないよう</b>にしてください。
+    </div>
+    <div data-role="footer">
+      <div data-role="navbar">
+        <ul>
+          <li><a href="http://isbn.sbcr.jp/68734/">jQuery Mobile<br />スマートフォンアプリ開発</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

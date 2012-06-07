@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>カスタムルールによるチェック</title>
+<meta charset="utf-8" >
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" >
+<link rel="stylesheet" href="../css/custom.css" >
+<link rel="stylesheet" href="css/error.css" >
+<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script src="js/jquery.validate.js"></script>
+<script src="js/messages_ja.js"></script>
+<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+<script>
+$(document).on('pageinit', "#p-validation-custom", function(e){
+
+  // ISBNの入力をチェックするカスタムルールを定義
+  $.validator.addMethod("isbn10", function(value, e){
+    // valueに入力値が設定されるのでチェックのロジックを記述
+    is10digit = /^(\d{9})[\d|X]$/.test(value);
+    if(is10digit){
+      var check = 0;
+      for (var n = 0; n < value.length-1; n++) {
+        check += parseInt(value.charAt(n), 10) * (10-n);
+      }
+      checkdigit = 11 - (check % 11);
+      checkdigit = (checkdigit==10)?'X':checkdigit;
+      return checkdigit==value.charAt(9);
+    }  else {
+      return false;
+    }
+    // 失敗したときのエラーメッセージを設定
+  },'正しいISBNを入力してください');
+
+  $("#form").validate({});
+
+});
+</script>
+</head>
+<body>
+<div data-role="page" id="p-validation-custom">
+  <div data-role="header">
+    <h2>カスタムルールによるチェック</h2>
+  </div>
+  <div data-role="content">
+    <form id="form" method="get" action="">
+    <input type="submit" class="submit" value="送信">
+    <hr />
+    <fieldset>
+      <label>ISBN10</label>
+      <input type="text" name="isbn" id="isbn" class="isbn10" />
+    </fieldset>
+    </form>
+  </div>
+</div>
+</body>
+</html>

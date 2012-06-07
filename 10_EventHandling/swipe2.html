@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>swipeイベント</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css"/>
+<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+<script>
+$(document).on("swipeleft", "#p-swipe1", function(e){
+  $.mobile.changePage("swipe2.html",{transition: 'slide'});
+});
+$(document).on("swiperight", "#p-swipe2", function(e){
+  $.mobile.changePage("swipe1.html",{transition: 'slide', reverse: true});
+});
+</script>
+</head>
+<body>
+  <div data-role="page" id="p-swipe2">
+    <div data-role="header" data-position="fixed" >
+      <h1>swipeイベント</h1>
+    </div>
+    <div data-role="content" id="bb">
+    画面を右にスワイプすると、前の画面に戻ります。
+    </div>
+    <div data-role="footer" data-position="fixed" data-id="swipe">
+      <h2>
+	画面2
+      </h2>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- ヘッダーは最初のページしか読まれない -->
+<meta charset="utf-8" >
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" >
+<link rel="stylesheet" href="../css/custom.css" >
+<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+</head>                                             
+<body>                                              
+<div data-role="page" id="p-html5-validation">
+  <div data-role="header">
+    <h1>HTML5入力値チェック</h1>
+  </div>
+  <div data-role="content">
+    <form id="form" method="get" action="">
+      <input type="submit" class="submit" value="送信">
+      <hr />
+      <fieldset>
+        <label>数字(type=number)</label><br />
+        (iOS4.2+,Android 2.2+)
+        <input type="number" id="number" name="number"/>
+      </fieldset>
+      <hr />
+      <fieldset>
+        <label>電話番号(type=tel)</label><br />
+        (iOS4.2+,Android 2.2+)
+        <input type="tel" id="tel" name="tel"/>
+      </fieldset>
+      <hr />
+      <fieldset>
+        <label>メールアドレス(type=email)</label><br />
+        (iOS5+,Android 2.3+)
+        <input type="email" id="email" name="email"/>
+      </fieldset>
+      <hr />
+      <fieldset>
+        <label>URL(type=属性)</label><br />
+        (iOS5+,Android 2.3+)
+        <input type="url" id="url" name="url"/>
+      </fieldset>
+      <hr />
+      <fieldset>
+        <label>日付(type=date)</label><br />
+        (iOS5+,Chrome for Android)
+        <input type="date" id="date" name="date"/>
+      </fieldset>
+      <hr />
+      <fieldset>
+        <label>日時(type=datetime)</label><br />
+        (iOS5+,Chrome for Android)    
+        <input type="datetime" id="datetime" name="datetime"/>
+      </fieldset>
+      <hr />
+      <fieldset>
+        <label>月(type=month)</label><br />
+        (iOS5+,Chrome for Android)
+        <input type="month" id="month" name="month"/>
+      </fieldset>
+      <hr />
+      <fieldset>
+        <label>時間(type=time)</label><br />
+        (iOS5+,Chrome for Android)
+        <input type="time" id="time" name="time"/>
+      </fieldset>
+      
+    </form>
+  </div>
+</div>
+</body>
+</html>

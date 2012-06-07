@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>入力値の確認</title>
+<meta charset="utf-8" >
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" >
+<link rel="stylesheet" href="css/error.css" >
+<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script src="js/jquery.validate.js"></script>
+<script src="js/messages_ja.js"></script>
+<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+<script>
+$(document).on('pageinit', "#p-validation-confirm", function(e){
+  $("#form").validate({});
+});
+</script>
+</head>                                             
+<body>                                              
+<div data-role="page" id="p-validation-confirm">
+  <div data-role="header">
+    <h2>入力値の確認</h2>
+  </div>
+  <div data-role="content">
+    <p><br>
+      equalTo属性で入力値の確認ができます。パスワードやメールアドレスなど、間違えてはいけないフィールドの値を2度入力して再確認するのに利用します。equalTo属性を利用します。
+    </p>
+    <form id="form" method="get" action="">
+      <input type="submit" class="submit" value="送信">
+      <hr />
+    <fieldset>
+      <label>password</label>
+      <input type="password" value="" id="password1" />
+    </fieldset>
+    <fieldset>
+      <label>password確認</label>
+      <input type="password" value="" id="password2" equalTo="#password1" required />
+    </fieldset>
+    </form>
+  </div>
+</div>
+</body>
+</html>

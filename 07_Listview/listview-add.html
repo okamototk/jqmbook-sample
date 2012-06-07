@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>リストビュー</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css"/>
+<link rel="stylesheet" href="css/custom.css"/>
+<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+<script src="js/custom.js"></script>
+</head>
+<body>
+  <div data-role="page" id="p-listview-add">
+    <div data-role="content">
+      <h3>要素を動的に追加する</h3>
+      <form>
+        <ol data-role="listview" data-inset="true" id="addList">
+          <li>要素1</li>
+          <li>要素2</li>
+          <li>要素3</li>
+        </ol>
+      </form>
+      <button id="addBtn">要素を追加する</button>
+      <br />
+      <button id="addBtnFail">要素を追加する(ダメな例)</button>
+    </div>
+  </div>
+</body>
+</html>

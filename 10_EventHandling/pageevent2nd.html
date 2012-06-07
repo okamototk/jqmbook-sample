@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html> 
+<head>
+  <meta charset="utf-8" >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/> 
+  <link href="http://code.jquery.com/mobile/latest/jquery.mobile.min.css" rel="stylesheet" type="text/css"/>
+  <script src="http://code.jquery.com/jquery-1.7.1.min.js" ></script></script>
+  <script src="http://code.jquery.com/mobile/latest/jquery.mobile.min.js"></script>
+  <script src="js/pageevent.js"></script>
+</head>
+<body>
+  <script>
+  console.log("running script in body(p-2nd)");
+  </script>
+<div data-role="page" id="p-2nd" >
+<script type="text/javascript">
+console.log("running script(p-2nd)");
+</script>
+   <div data-role="header">
+    <h1>2ページ目</h1>
+   </div>
+   <div data-role="content">
+<ul data-role="listview">		
+<li><a href="#p-2nd-sub">同じHTML内の別のページへ</a></li>
+<li><a href="pageevent1st.html">前へ戻る</a></li>
+</ul>
+</div>
+</div>
+
+<div data-role="page" id="p-2nd-sub" name="p-2nd-sub" data-dom-cache="true">
+<script type="text/javascript">
+console.log("running script(p-2nd(sub))");
+</script>
+   <div data-role="header">
+    <h1>2ページ目(サブ)</h1>
+   </div>
+   <div data-role="content">
+<ul data-role="listview">		
+<li><a href="pageevent1st.html">1ページ目へ戻る</a></li>
+</ul>
+</div>
+</div>
+</body>
+</html>

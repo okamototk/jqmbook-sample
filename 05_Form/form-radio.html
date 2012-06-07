@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>フォーム</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css"/>
+<link rel="stylesheet" href="css/custom.css"/>
+<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+</head>
+<body>
+  <div data-role="page" id="p-form-radio">
+    <div data-role="header">
+      <h2>フォーム</h2>
+    </div>
+    <div data-role="content">
+      <h1>ラジオ</h1>
+      <div data-role="fieldcontain">
+        <fieldset data-role="controlgroup">
+          <legend>ペットを選んでください</legend>
+          <input type="radio" name="radio-choice-1" id="radio-choice-1" value="choice-1" checked="checked" />
+          <label for="radio-choice-1">犬</label>
+          <input type="radio" name="radio-choice-1" id="radio-choice-2" value="choice-2"  />
+          <label for="radio-choice-2">ネコ</label>
+          <input type="radio" name="radio-choice-1" id="radio-choice-3" value="choice-3"  />
+          <label for="radio-choice-3">ハムスター</label>
+        </fieldset>
+      </div>
+
+      <br />
+      <br />
+      <br />
+
+      <div data-role="fieldcontain">
+        <fieldset data-role="controlgroup" data-type="horizontal" >
+          <legend>ペットを選んでください</legend>
+          <input type="radio" name="radio-choice-1" id="radio-choice-1" value="choice-1" checked="checked" />
+          <label for="radio-choice-1">犬</label>
+          <input type="radio" name="radio-choice-1" id="radio-choice-2" value="choice-2"  />
+          <label for="radio-choice-2">ネコ</label>
+          <input type="radio" name="radio-choice-1" id="radio-choice-3" value="choice-3"  />
+          <label for="radio-choice-3">ハムスター</label>
+        </fieldset>
+      </div>
+
+    </div>
+    <div data-role="footer">
+      <h2>フッタ</h2>
+    </div>
+  </div>
+</body>
+</html>

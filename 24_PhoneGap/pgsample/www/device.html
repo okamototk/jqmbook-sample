@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<link rel="stylesheet" href="css/jquery.mobile-1.1.0.min.css"/>
+<script src="cordova-1.7.0.js"></script>
+<script src="js/jquery-1.7.1.min.js"></script>
+<script src="js/jquery.mobile-1.1.0.min.js"></script>
+<script>
+  $(document).on("pageinit", "#p-device", function() {
+  support = ["accelerometer", "camera", "capture" ,"compass" ,"contact" ,"debugConsole" ,"device" ,"file", "filetransfer","media","network" ,"notification"];
+  $.each(support, function(idx){
+  $("#"+this).text(window.plugins[this]!==undefined);
+  });
+
+  deviceReady = false;
+  document.addEventListener("deviceready", function(){
+  deviceReady = true;
+
+  console.log = function(msg) {
+  $("#log").append(msg + "<br />")
+  }
+
+  console.log("プラットフォーム:" + device.platform + " " + device.version);
+
+  deviceReady = false;
+  document.addEventListener("deviceready", function(){
+  console.log = function(msg) {
+  $("#log").append(msg + "<br />");
+  };
+  deviceReady = true;
+  console.log("デバイス:" + device.platform + " " + device.version);
+
+  } , false);
+
+  window.setTimeout(function() {
+  if (!deviceReady) {
+  alert("PhoneGapの初期化に失敗しました");
+  }
+  }, 5000);
+
+  } , false);
+  
+}); // pageinit
+
+
+
+</script>
+</head>
+<body>
+  <div data-role="page" id="p-device">
+  
+    <div data-role="header">
+      <a href="index.html" data-icon="arrow-l">戻る</a>
+      <h3>デバイス情報</h3>
+    </div>
+    
+    <div data-role="content">
+      <table>
+        <tr><th>デバイス</th><th>サポート</th></tr>
+        <tr><td>accelerometer</td><td id="accelerometer"></td></tr>
+        <tr><td>camera</td><td id="camera"></td></tr>
+        <tr><td>capture</td><td id="capture"></td></tr>    
+        <tr><td>compass</td><td id="compass"></td></tr>        
+        <tr><td>contact</td><td id="contact"></td></tr>        
+        <tr><td>debugConsole</td><td id="debugConsole"></td></tr>            
+	    <tr><td>device</td><td id="device"></td></tr>                
+        <tr><td>file</td><td id="file"></td></tr>                	
+        <tr><td>filetransfer</td><td id="filetransfer"></td></tr>                	
+        <tr><td>media</td><td id="media"></td></tr>                	    
+        <tr><td>network</td><td id="network"></td></tr>                	        
+        <tr><td>notification</td><td id="notification"></td></tr>
+      </table>
+    <hr />
+    <div id="log"></div>
+  </div><!-- end content -->
+    
+</div>
+</body>
+</html>

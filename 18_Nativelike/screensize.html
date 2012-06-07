@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>画面サイズ</title>
+    <meta charset="utf-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" >
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+
+  </head>
+  <body>
+    <div data-role="page" id="p-screensize">
+      <div data-role="header" >
+        <h1>画面サイズの取得</h1>
+      </div>
+      <div data-role="content">
+        <table border="1" cellspacing="0" cellpadding="1">
+          <tr>
+            <th>プロパティ</th><th>値</th>
+          </tr>
+          <tr>
+            <td>window.outerWidth</td><td><span id="windowOuterWidth"></span></td>
+          </tr>
+          <tr>
+            <td>window.outerHeight</td><td><span id="windowOuterHeight"></span></td>
+          </tr>
+          <tr>
+            <td>window.innerWidth</td><td><span id="windowInnerWidth"></span></td>
+          </tr>
+          <tr>
+            <td>window.innerHeight</td><td><span id="windowInnerHeight"></span></td>
+          </tr>
+          <tr>
+            <td>screen.availWidth</td><td><span id="screenAvailWidth"></span></td>
+          </tr>
+          <tr>
+            <td>screen.availHeight</td><td><span id="screenAvailHeight"></span></td>
+          <tr>
+          <tr>
+            <td>document.width</td><td><span id="documentWidth"></span></td>
+          </tr>
+          <tr>
+            <td>document.height</td><td><span id="documentHeight"></span></td>
+          <tr></tr>
+        </table>
+        <script>
+          $("#windowOuterHeight").html(window.outerHeight);
+          $("#windowOuterWidth").html(window.outerWidth);
+          $("#windowInnerHeight").html(window.innerHeight);
+          $("#windowInnerWidth").html(window.innerWidth);
+          $("#windowOuterHeightDiv").html(window.outerHeight / window.devicePixelRatio);
+          $("#windowOuterWidthDiv").html(window.outerWidth / window.devicePixelRatio);
+          $("#screenWidth").html(screen.width);
+          $("#screenHeight").html(screen.height);
+          $("#screenAvailWidth").html(screen.availWidth);
+          $("#screenAvailHeight").html(screen.availHeight);
+          $("#documentWidth").html($(document).width());
+          $("#documentHeight").html($(document).height());        </script>
+      </div>
+    </div>
+  </body>
+</html>

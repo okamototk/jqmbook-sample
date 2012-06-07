@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--
+フォトビューワ
+イメージディレクトリから自動的にフォトビューワを生成
+*  index.php フォトビューワメイン
+*  thumb.php サムネイル生成エンジン
+*  delete.php 削除用スクリプト
+から構成される。
+-->
+<html>
+<head>
+<title>PhotoViewer</title>
+<meta charset="utf-8"/>
+<meta name="author" content="Takashi Okamoto, Tomofumi Tanaka" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css"/>
+<link href="css/styles.css" rel="stylesheet" />
+<link href="js/photoswipe/photoswipe.css" rel="stylesheet" />
+
+<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script src="js/picup.js"></script>
+<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+<script src="js/photoswipe/klass.min.js"></script>
+<script src="js/photoswipe/code.photoswipe.jquery-3.0.4.min.js"></script>
+<script src="js/photoviewer.js"></script>
+</head>
+<body>
+
+<div data-role="page" id="p-gallery">
+  <div data-role="header">
+    <h3>PhotoViewer</h3>
+    <a href="#p-add-photo" data-rel="dialog" data-icon="add" class="ui-btn-right" id="add-photo-btn">追加</a>
+  </div>
+  <div data-role="content" >
+    <ul class="gallery" id="Gallery">
+    </ul>
+  </div>
+  <div data-role="footer">
+    <h4>&copy; 2012 Takashi Okamoto</h4>
+  </div>
+</div>
+
+<!-- アップロードフォーム -->
+<div data-role="page" id="p-add-photo">
+  <div data-role="header">
+    <h3>写真の追加</h3>
+  </div>
+  <div data-role="content">
+    <form action="upload.php" method="post" enctype="multipart/form-data" data-ajax="false" data-role="fieldcontain">
+      <label for="photo">写真の選択</label>
+      <input type="file" name="photo" id="photo" />
+      <input type="submit" value="アップロード" id="upload-photo" />
+    </form>
+  </div>
+</div>
+
+</body>
+</html>

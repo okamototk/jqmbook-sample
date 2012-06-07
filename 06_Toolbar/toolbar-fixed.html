@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ツールバー</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css"/>
+<link rel="stylesheet" href="css/custom.css"/>
+<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+</head>
+<body>
+  <div data-role="page" id="p-toolbar-fixed">
+    <div data-role="header" data-position="fixed" >
+      <h1>タイトル</h1>
+      <a href="#" data-icon="gear" class="ui-btn-right">設定</a>
+    </div>
+    <div data-role="content">
+      <h2>ツールバーを固定する</h2>
+      <p>
+      多少長いコンテンツがないとスクロールが発生しないのでご注意ください。
+      そのためここに意味のないコンテンツを書きます。
+      </p>
+      <ul data-role="listview" data-inset="true">
+        <li data-role="list-divider">旅行行きたいです</li>
+        <li>北海道</li>
+        <li>福島</li>
+        <li>東京</li>
+        <li>名古屋</li>
+        <li>大阪</li>
+        <li>広島</li>
+        <li>高知</li>
+        <li>福岡</li>
+        <li>沖縄</li>
+      </ul>
+      <p>コンテンツはここで終わりになります</p>
+    </div>
+    <div data-role="footer" data-position="fixed">
+      <div data-role="navbar" data-iconpos="top">
+        <ul>
+          <li><a href="#" data-icon="home" class="ui-btn-active">ホーム</a></li>
+          <li><a href="#" data-icon="star">お気に入り</a></li>
+          <li><a href="#" data-icon="search">検索</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

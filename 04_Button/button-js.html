@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>4章 スマートフォンで使いやすいボタン</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css"/>
+<link rel="stylesheet" href="css/custom.css"/>
+<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+<script src="js/custom.js"></script>
+</head>
+<body>
+  <div data-role="page" id="p-button-js">
+    <div data-role="header">
+      <h2>有効・無効の切り替え</h2>
+    </div>
+    <div data-role="content">
+      <h4>JavaScriptから操作</h4>
+      <button id="bbtn">Bボタン</button>
+      <br />
+      <button id="bdis">Bボタン disable</button>
+      <button id="bena">Bボタン enable</button>
+
+      <br />
+
+      <a href="#" data-role="button" id="abtn">a要素のボタン</a>
+      <br />
+      <button id="adis">a要素のボタン disable</button>
+      <button id="aena">a要素のボタン enable</button>
+
+      <h4>クラスの指定</h4>
+      <a href="#" data-role="button" data-icon="delete">削除</a>
+      <a href="#" data-role="button" data-icon="delete" class="ui-disabled">削除</a>
+    </div>
+  </div>
+</body>
+</html>

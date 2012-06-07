@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html> 
+<head>
+<title>orientationイベント</title>  
+<meta charset="utf-8" >
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css"/>
+<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+<script>
+$(window).on("orientationchange", function(e, data){
+  $("#jqm_orientation").val(e.orientation);
+  if(window.orientation !=undefined){
+    $("#raw_orientation").val(window.orientation);
+  }
+});
+</script>
+</head>
+<body>
+<div data-role="page" id="p-orientation" >
+  <div data-role="header">
+    <h2>orientationイベント</h2>
+   </div>
+  <div data-role="content">
+     <p>
+       端末の向きを変えてみてください。
+     </p>
+     <fieldset>
+        <label>JQMのorientation:<br />(縦持ち:portrait,横持ち:landscape)</label>
+       <input type="text" id="jqm_orientation" name="jqm_orientation"/>
+     </fieldset>
+     <fieldset>
+       <label>ブラウザのorientation:</label>
+       <input type="text" id="raw_orientation" name="raw_orientation">
+     </fieldset>
+   </div>
+</div>
+</body>
+</html>

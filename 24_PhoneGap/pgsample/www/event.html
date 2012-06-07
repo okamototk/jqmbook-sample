@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<title>イベント処理</title>
+<link rel="stylesheet" href="css/jquery.mobile-1.1.0.min.css"/>
+<link rel="stylesheet" href="css/custom.css"/>
+<script src="cordova-1.7.0.js"></script>
+<script src="js/jquery-1.7.1.min.js"></script>
+<script src="js/jquery.mobile-1.1.0.min.js"></script>
+<script>
+$(document).on("pageinit", "#p-event", function() {
+
+  deviceReady = false;
+  document.addEventListener("deviceready", function(){
+    deviceReady = true;
+
+    console.log = function(msg) {
+      $("#log").append(msg + "<br />")
+    }
+
+    console.log("プラットフォーム:" + device.platform + " " + device.version);
+
+    $(document).on("pause", function() {
+      console.log("スリープ");
+    });
+
+    if(device.platform!=="WinCE"){
+      $(document).on("resume", function() {
+        console.log("復帰");
+      });
+    }
+
+    $(document).on("online", function() {
+      console.log("ネットワーク接続");
+    });
+
+    $(document).on("offline", function() {
+      console.log("ネットワーク切断");
+    });
+
+    $(document).on("batterycritical", function() {
+      console.log("電池切れ");
+    });
+
+    $(document).on("backbutton", function() {
+      // Android/Windows Phoneで動作
+      console.log("戻るボタン");
+    });
+
+    $(document).on("menubutton", function() {
+      // Androidのみ
+      console.log("メニューボタン");
+    });
+
+    $(document).on("searchbutton", function() {
+      // Androidのみ
+      console.log("検索ボタン");
+    });
+  
+  } , false);
+
+  window.setTimeout(function() {
+    if (!deviceReady) {
+      alert("PhoneGapの初期化に失敗しました");
+    }
+  }, 5000);
+
+}); // pageinit
+</script>
+</head>
+<body>
+  <div data-role="page" id="p-event">
+    <div data-role="header">
+      <a href="index.html" data-icon="arrow-l">戻る</a>        
+      <h3>イベント処理</h3>
+    </div>
+    <div data-role="content">
+      <ul data-role="listview">
+        <li data-role="list-divider">ボタンイベント</li>
+        <li>戻るボタン</li>
+        <li>メニューボタン</li>
+        <li>検索ボタン</li>
+        <li data-role="list-divider">デバイスの状態</li>
+        <li>スリープ</li>
+        <li>スリープからの復帰</li>
+        <li>ネットワーク接続</li>
+        <li>ネットワーク切断</li>
+        <li>電池切れ</li>
+      </ul>
+      <hr />
+      <div id="log"></div>
+    </div>
+  </div>
+</body>
+</html>

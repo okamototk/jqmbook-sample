@@ -1,0 +1,8 @@
+/* ヘッダの表示文字を増やす */
+.ui-header .ui-title {
+  margin: .6em 20px .8em;
+}
+/* カスタムアイコン */
+.ui-icon-myicon {
+    background-image: url("myicon.png");
+}

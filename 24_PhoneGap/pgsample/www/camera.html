@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<title>カメラ</title>
+<link rel="stylesheet" href="css/jquery.mobile-1.1.0.min.css"/>
+<link rel="stylesheet" href="css/custom.css"/>
+<script src="cordova-1.7.0.js"></script>
+<script src="js/jquery-1.7.1.min.js"></script>
+<script src="js/jquery.mobile-1.1.0.min.js"></script>
+<script>
+// upload.phpをおいたURLを指定
+UPLOAD_URL = "http://ultimania.org/jqm/photoviewer/upload.php";
+var imgUrl = null;
+
+$(document).on("pageinit", "#p-camera", function() {
+
+  img = $("#p-camera #photoframe");
+  img.width("90%");
+  
+  function upload(uri){
+    var handleFileEntry = function(fileEntry) {
+      var opts = new FileUploadOptions();
+      var filename;
+      opts.fileKey="photo";
+      filename = fileEntry.name;        
+
+      if(/\./.test(filename)){
+        opts.fileName=filename;        
+      } else {
+        opts.fileName=filename + ".jpg";
+      }
+      opts.mimeType="image/jpeg";
+
+      var ft = new FileTransfer();
+      ft.upload(uri, UPLOAD_URL, function(r){
+        console.log("アップロード成功");
+        console.log("ファイルサイズ:"+r.bytesSent);
+        console.log("コード："+r.responseCode);
+        $("#log").append(r.response);
+      }, function(e){
+        console.log("アップロード失敗:"+e.code);
+      }, opts);    
+    }
+    //resolve file system for image  
+    window.resolveLocalFileSystemURI(uri, handleFileEntry, function(e){
+      console.log("ファイル取得エラー:"+e);
+    });
+  }
+  
+  $(this).on("click", "#capture", function(e) {
+    var sourceType ,destinationType;
+    
+    destinationType = navigator.camera.DestinationType.FILE_URI;
+    
+    if($("#p-camera #sourceType").val()=="camera"){
+      sourceType = navigator.camera.PictureSourceType.CAMERA;
+    } else {
+      sourceType = navigator.camera.PictureSourceType.PHOTOLIBRARY;   
+    }
+    
+    navigator.camera.getPicture(
+      function(data) {
+        imgUrl = data;
+        img.css("visibility","visible");
+        img.css("display" ,"block");
+        img.attr("src",imgUrl);
+        console.log("写真を取得できました:"+imgUrl);
+       },
+       function(e) {
+         console.log("写真が取得できませんでした: " + e);
+       }                 ,
+       { quality: 50, 
+         destinationType: destinationType,
+         sourceType : sourceType}
+     );
+    
+  }); // click capture
+  
+  $(this).on("click", "#send", function(e) {
+    if(imgUrl!=null){
+    	upload(imgUrl);
+    }
+  });
+  
+  // PhoneGap初期化
+  deviceReady = false;
+  document.addEventListener("deviceready", function(){
+    deviceReady = true;
+    
+    console.log = function(msg) {
+      $("#log").append(msg + "<br />")
+    }
+    
+    console.log("プラットフォーム:" + device.platform + " " + device.version);
+
+  } , false);
+    
+  window.setTimeout(function() {
+    if (!deviceReady) {
+      alert("PhoneGapの初期化に失敗しました");
+    }
+  }, 5000);
+
+}) // pageinit
+</script>
+</head>
+<body>
+  <div data-role="page" id="p-camera">
+  
+    <div data-role="header">
+      <a href="index.html" data-icon="arrow-l">戻る</a>
+      <h3>カメラ</h3>
+    </div>
+    
+    <div data-role="content">
+    <select id="sourceType" data-role="slider">
+      <option value="camera" selected>カメラ</option>    
+      <option value="folder">フォルダ</option>
+    </select> 
+    <button id="capture">画像取得</button>
+    <img style="visibility:hidden;display:none;" id="photoframe" src="" />
+    <button id="send">送信</button>
+    <hr />
+    <div id="log"></div>
+    </div>
+    
+  </div>
+</body>
+</html>

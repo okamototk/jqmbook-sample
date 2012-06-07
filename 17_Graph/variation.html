@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html> 
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css"/> 
+  <link rel="stylesheet" href="js/jqplot/jquery.jqplot.min.css"/> 
+  <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+  <script src="js/jqplot/jquery.jqplot.min.js"></script>
+  <script src="js/jqplot/plugins/jqplot.canvasTextRenderer.min.js"></script>
+  <script src="js/jqplot/plugins/jqplot.canvasAxisLabelRenderer.min.js"></script>
+  <script src="js/jqplot/plugins/jqplot.dateAxisRenderer.min.js"></script>
+  <script src="js/jqplot/plugins/jqplot.canvasAxisTickRenderer.min.js"></script>
+  <!-- for bar chart -->
+  <script src="js/jqplot/plugins/jqplot.barRenderer.min.js"></script>
+  <script src="js/jqplot/plugins/jqplot.categoryAxisRenderer.min.js"></script>
+  <!-- for pie chart -->
+  <script src="js/jqplot/plugins/jqplot.pieRenderer.min.js"></script>
+  <!-- for bubble chart -->
+  <script src="js/jqplot/plugins/jqplot.bubbleRenderer.min.js"></script>
+  <!-- for meter chart -->
+  <script src="js/jqplot/plugins/jqplot.meterGaugeRenderer.min.js"></script>
+  <!-- for candle -->
+  <script src="js/jqplot/plugins/jqplot.ohlcRenderer.min.js"></script>
+  <script src="js/jqplot/plugins/jqplot.cursor.min.js"></script>
+  <script src="js/jqplot/plugins/jqplot.mobile.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+<script>
+  $.jqplot.config.enablePlugins = true;
+
+  // 折れ線グラフ用データ
+  linedata = [[1,2],[2,2],[3,3],[4,2],[5,4]];
+  linedata2= [[1,6],[2,4],[3,2],[4,4],[5,5]];
+  
+  // ローソク用データ
+  ohlc = [
+    // 日時                 始値    終値   安値    高値
+    ['06/15/2009 16:00:00', 136.01, 139.5, 134.53, 139.48],
+    ['06/08/2009 16:00:00', 143.82, 144.56, 136.04, 136.97],
+    ['06/01/2009 16:00:00', 136.47, 146.4, 136, 144.67],
+    ['05/26/2009 16:00:00', 124.76, 135.9, 124.55, 135.81],
+    ['05/18/2009 16:00:00', 123.73, 129.31, 121.57, 122.5],
+    ['05/11/2009 16:00:00', 127.37, 130.96, 119.38, 122.42],
+    ['05/04/2009 16:00:00', 128.24, 133.5, 126.26, 129.19],
+    ['04/27/2009 16:00:00', 122.9, 127.95, 122.66, 127.24],
+    ['04/20/2009 16:00:00', 121.73, 127.2, 118.6, 123.9],
+    ['04/13/2009 16:00:00', 120.01, 124.25, 115.76, 123.42],
+    ['04/06/2009 16:00:00', 114.94, 120, 113.28, 119.57],
+    ['03/30/2009 16:00:00', 104.51, 116.13, 102.61, 115.99],
+    ['03/23/2009 16:00:00', 102.71, 109.98, 101.75, 106.85],
+    ['03/16/2009 16:00:00', 96.53, 103.48, 94.18, 101.59],
+    ['03/09/2009 16:00:00', 84.18, 97.2, 82.57, 95.93],
+    ['03/02/2009 16:00:00', 88.12, 92.77, 82.33, 85.3],
+    ['02/23/2009 16:00:00', 91.65, 92.92, 86.51, 89.31],
+    ['02/17/2009 16:00:00', 96.87, 97.04, 89, 91.2],
+    ['02/09/2009 16:00:00', 100, 103, 95.77, 99.16],
+    ['02/02/2009 16:00:00', 89.1, 100, 88.9, 99.72],
+    ['01/26/2009 16:00:00', 88.86, 95, 88.3, 90.13],
+    ['01/20/2009 16:00:00', 81.93, 90, 78.2, 88.36],
+    ['01/12/2009 16:00:00', 90.46, 90.99, 80.05, 82.33],
+    ['01/05/2009 16:00:00', 93.17, 97.17, 90.04, 90.58],
+    ['12/29/2008 16:00:00', 86.52, 91.04, 84.72, 90.75],
+    ['12/22/2008 16:00:00', 90.02, 90.03, 84.55, 85.81],
+    ['12/15/2008 16:00:00', 95.99, 96.48, 88.02, 90],
+    ['12/08/2008 16:00:00', 97.28, 103.6, 92.53, 98.27],
+    ['12/01/2008 16:00:00', 91.3, 96.23, 86.5, 94],
+    ['11/24/2008 16:00:00', 85.21, 95.25, 84.84, 92.67],
+    ['11/17/2008 16:00:00', 88.48, 91.58, 79.14, 82.58],    
+    ['11/10/2008 16:00:00', 100.17, 100.4, 86.02, 90.24],
+    ['11/03/2008 16:00:00', 105.93, 111.79, 95.72, 98.24],
+    ['10/27/2008 16:00:00', 95.07, 112.19, 91.86, 107.59],
+    ['10/20/2008 16:00:00', 99.78, 101.25, 90.11, 96.38],
+    ['10/13/2008 16:00:00', 104.55, 116.4, 85.89, 97.4],
+    ['10/06/2008 16:00:00', 91.96, 101.5, 85, 96.8],
+    ['09/29/2008 16:00:00', 119.62, 119.68, 94.65, 97.07],
+    ['09/22/2008 16:00:00', 139.94, 140.25, 123, 128.24],
+    ['09/15/2008 16:00:00', 142.03, 147.69, 120.68, 140.91]
+  ];
+
+  // 共通オプションa
+  opts = {
+      title: '雑誌売上',
+        series: [
+          {label:'週刊ステップ'},
+          {label:'週刊マシンガン'},
+        ],
+        legend: {
+          show: true,
+          location: 'ne',
+          rendererOptions: {
+            numberRows: 1
+          }
+        },
+
+        axes: {
+          xaxis: {
+            autoscale:true,
+            tickRenderer: $.jqplot.CanvasAxisTickRenderer,
+            tickInterval: 1,
+          },
+          yaxis: {
+            tickRenderer: $.jqplot.CanvasAxisTickRenderer,
+            tickOptions:{prefix: '$'}
+          }
+      },
+      cursor:{zoom:true},
+  };
+  
+  // 棒グラフ用データ
+  bardata  = [[10,30,20, 15],[12,12,11,23]];
+  // 棒グラフ用カテゴリ
+  ticks = ['つまらない','普通','面白い','大変面白い'];
+  // 円グラフ用データ
+  piedata  = [['etc',2.1],['Android 2.1', 9.6],['Android 2.2', 35.3],['Android 2.3', 50.6],['Android 3.x', 2.4]];
+  
+  $(document).on('pageshow','#p-variation',function(e){
+    // 折れ線グラフ描画
+    lineplot = $.jqplot('linechart', [linedata,linedata2], opts);
+    // 棒グラフ描画
+    barplot = $.jqplot('barchart', bardata, 
+       {
+        title:'アンケート結果',
+	  seriesDefaults: { 
+            renderer: $.jqplot.BarRenderer,
+            pointLabels: {show:true}
+        },
+        series: [
+          {label:'週刊ステップ'},
+          {label:'週刊マシンガン'},
+        ],
+        legend: {
+          show: true,
+          location: 'ne',
+        },
+        axes: {
+          xaxis: {
+             renderer: $.jqplot.CategoryAxisRenderer,
+             ticks: ticks
+          }
+        },
+        highliter: {show:false}
+    });
+    opts['seriesDefaults']={fill:true};
+  
+    // エリアチャート描画
+    areaplot = $.jqplot('areachart', [linedata], opts);
+
+    // 円グラフ描画
+    pieplot = $.jqplot('piechart', [piedata], {
+      title:'OSシェア',
+      gridPadding: {top:0, bottom:38, left:0, right:0},
+      seriesColors: ["#AAAAAA","#66FF66","#44DD44","#00AA00","#008000"],
+      seriesDefaults: {
+        renderer: jQuery.jqplot.PieRenderer, 
+        trendline: {show: false},
+        rendererOptions: {
+          showDataLabels: true,
+	    padding: 8
+        }          
+      },
+      legend :{ 
+        show:true, 
+        location: 'n',
+        rendererOptions: {
+          numberRows: 2
+        },
+        marginTop: '15px'
+      }
+    });
+
+    // バブルチャート用データ
+    var bubbledata = [
+      [11, 123, 1236, "Acura"], [45, 92, 1067, "Alfa Romeo"], 
+      [24, 104, 1176, "AM General"], [50, 23, 610, "Aston Martin Lagonda"], 
+      [18, 17, 539, "Audi"], [7, 89, 864, "BMW"], [2, 13, 1026, "Bugatti"]
+    ];
+
+    // バブルチャート描画
+    bubbleplot = $.jqplot('bubblechart',[bubbledata],{
+      title: 'Transparent Bubbles',
+      seriesDefaults:{
+          renderer: $.jqplot.BubbleRenderer,
+          rendererOptions: {
+              bubbleAlpha: 0.6,
+              highlightAlpha: 0.8
+          },
+          shadow: true,
+          shadowAlpha: 0.05
+      }
+    });
+
+    // メーター描画
+    meterplot = $.jqplot('meterchart',[[76]],{
+      title: '体重',
+      seriesDefaults: {
+        renderer: $.jqplot.MeterGaugeRenderer,
+        rendererOptions: {
+            label: 'kg',
+            min: 0,
+            max: 200,
+            intervals:[50, 100, 150, 200],
+            intervalColors:['#66cc66', '#cccc66', '#cc9966', '#cc6666']
+          }
+      }
+    });
+  
+    // ロウソク描画
+    candleplot = $.jqplot('candlechart',[ohlc],{
+      seriesDefaults:{yaxis:'y2axis'},
+      axes: {
+        xaxis: {
+          renderer:$.jqplot.DateAxisRenderer,
+          tickOptions:{formatString:'%b %e'}, 
+          min: "09-01-2008",
+          max: "06-22-2009",
+          tickInterval: "6 weeks",
+        },
+      y2axis: {
+        tickOptions:{formatString:'$%d'}
+      }
+    },
+    // To make a candle stick chart, set the "candleStick" option to true.
+    series: [
+      {
+        renderer:$.jqplot.OHLCRenderer, 
+        rendererOptions:{ candleStick:true }
+      }
+    ],
+    highlighter: {
+      show: true,
+      showMarker:false,
+      tooltipAxes: 'xy',
+      yvalues: 4,
+      formatString:'<table class="jqplot-highlighter"> \
+      <tr><td>date:</td><td>%s</td></tr> \
+      <tr><td>open:</td><td>%s</td></tr> \
+      <tr><td>hi:</td><td>%s</td></tr> \
+      <tr><td>low:</td><td>%s</td></tr> \
+      <tr><td>close:</td><td>%s</td></tr></table>'
+    },
+    cursor:{zoom:true}
+  });
+
+  $(window).on("orientationchange",function(e){
+    lineplot.replot();
+    barplot.replot();
+    areaplot.replot();
+    bubbleplot.replot();
+    pieplot.replot();
+    meterplot.replot();
+    candleplot.replot();
+  });
+  
+  $(document).on('pagehide',"#p-variation",function(e){
+    lineplot.destroy();
+    barplot.destroy();
+    areaplot.destroy();
+    bubbleplot.destroy();
+    pieplot.destroy();
+    meterplot.destroy();
+    candleplot.destroy();
+  });
+  
+});
+
+</script>
+</head>
+<body>
+<div data-role="page" id="p-variation">
+   <div data-role="header">
+    <h1>jqPlot+JQM</h1>
+   </div>
+ 
+  <div data-role="content">
+グラフはタッチで範囲を選択するとズームします。グラフを長押しするとズームを解除します。
+
+<div id="linechart"></div>
+<div id="barchart"></div>
+<div id="areachart"></div>
+<div id="piechart"></div>
+<div id="bubblechart"></div>
+<div id="candlechart"></div>
+<div id="pyramidchart"></div>
+<div id="meterchart"></div>
+
+</div>
+</div>
+</body>
+</html>

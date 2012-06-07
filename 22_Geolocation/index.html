@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>移動距離測定</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css"/>
+<script src="http://maps.google.com/maps/api/js?sensor=false&libraries=geometry"></script>
+<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+<script src="js/distance.js"></script>
+</head>
+<body>
+  <div data-role="page" id="p-top">
+    <div data-role="header">
+      <a href=".." data-rel="back">戻る</a>
+      <h2>移動距離測定</h2>
+      <a href="http://www.amazon.co.jp/gp/product/479736873X/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&tag=toraneko-22&linkCode=as2&camp=247&creative=1211&creativeASIN=479736873X">書籍</a>
+    </div>
+    <div data-role="content">
+      <div data-role="fieldcontain">
+        <a href="#" data-role="button" data-icon="home" id="start">移動開始</a>
+        <a href="#" data-role="button" data-icon="check" id="goal" class="ui-disabled">到着</a>
+      </div>
+      <ul data-role="listview" data-inset="true">
+        <li data-role="list-divider">開始位置</li>
+        <li>緯度:<span id="start-latitude"></span></li>
+        <li>経度:<span id="start-longitude"></span></li>
+      </ul>
+      <ul data-role="listview" data-inset="true">
+        <li data-role="list-divider">到着位置</li>
+        <li>緯度:<span id="goal-latitude"></span></li>
+        <li>経度:<span id="goal-longitude"></span></li>
+        <li>移動距離:<span id="distance"></span></li>
+      </ul>
+      <ul data-role="listview" data-inset="true">
+        <li data-role="list-divider">地図</li>
+        <li id="map-wrapper"></li>
+      </ul>
+      <ul id="histories" data-role="listview" data-inset="true">
+        <li data-role="list-divider">移動履歴</li>
+      </ul>
+      <div data-role="fieldcontain">
+        <a href="#" data-role="button" data-icon="delete" id="delete-histories">履歴削除</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

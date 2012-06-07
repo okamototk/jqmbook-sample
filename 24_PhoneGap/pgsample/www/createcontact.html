@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<title>電話帳登録</title>
+<link rel="stylesheet" href="css/jquery.mobile-1.1.0.min.css"/>
+<link rel="stylesheet" href="css/custom.css"/>
+<script src="cordova-1.7.0.js"></script>
+<script src="js/jquery-1.7.1.min.js"></script>
+<script src="js/jquery.mobile-1.1.0.min.js"></script>
+<script>
+function saveContact(){
+  var contactName = {
+      formatted: $("#familyName").val() + " " + $("#givenName").val(),
+      familyName: $("#familyName").val(),
+      givenName: $("#givenName").val()                    
+  };
+  var name = contactName.familyName + contactName.givenName
+  var contact = navigator.contacts.create({"displayName": name, "nickname": name});
+  
+  contact.name = contactName;
+
+  ctype = $("#ctype").val();
+
+  var phoneNumbers = [1];
+  phoneNumbers[0] = new ContactField(ctype, $("#tel").val(), true);
+  contact.phoneNumbers = phoneNumbers;
+
+  var emails = [1];
+  emails[0] = new ContactField(ctype, $("#email").val(), true);
+  contact.emails = emails;
+              
+  contact.save(function(contact) {
+     console.log("登録しました:"+contact);
+   },
+   function(e) {
+     console.log("登録に失敗しました:" + e.code);
+   });
+}
+
+$(document).on("pageinit", "#p-createcontact", function(e) {
+  $(this).on("click" ,"#save" ,function(e) {
+    saveContact();
+  }); 
+  deviceReady = false;
+  document.addEventListener("deviceready", function(){
+    deviceReady = true;
+    
+    console.log = function(msg) {
+      $("#log").append(msg + "<br />");
+    }
+    
+    console.log("デバイス:" + device.platform + " " + device.version);
+    
+  } , false);
+    
+  window.setTimeout(
+    function() {
+      if (!deviceReady) {
+        alert("PhoneGapの初期化に失敗しました");
+      }
+    }, 10000);
+  
+});
+
+</script>
+</head>
+<body>
+  <div data-role="page" id="p-createcontact">
+  
+    <div data-role="header">
+      <a href="index.html" data-icon="arrow-l">戻る</a>
+      <h3>電話帳登録</h3>
+    </div>
+    
+    <div data-role="content">
+
+      <button id="save">登録</button>
+  
+      <form id="form-contact">
+        <div data-role="fieldcontain">
+          <label for="familyName">苗字:</label>
+          <input type="text" name="familyName" id="familyName" value="hage" />
+        </div>
+        <div data-role="fieldcontain">
+          <label for="givenName">名前:</label>
+          <input type="text" name="givenName" id="givenName" value="hoge" />
+        </div>
+        
+        <div data-role="fieldcontain">
+          <label for="ctype">分類(Androidのみ)</label>
+          <select id="ctype">
+             <option value="Home">自宅</option>
+             <option value="Work">職場</option>           
+　                 　      <option value="Other">カスタム</option>                                                       
+          </select>
+        </div>
+        
+        <div data-role="fieldcontain">
+          <label for="tel">電話番号:</label>
+          <input type="tel" name="tel" id="tel" value="124343"/>
+        </div>
+        
+        <div data-role="fieldcontain">
+          <label for="email">メールアドレス:</label>
+          <input type="email" name="email" id="email" value="hoge@example.com"/>
+        </div>
+      </form>
+      <hr />  
+      <div id="log"></div>
+    </div>
+    
+  </div>
+</body>
+</html>

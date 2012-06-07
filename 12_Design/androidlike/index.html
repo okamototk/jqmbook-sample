@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Androidライク</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css"/>
+<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+<link rel="stylesheet" href="css/android-theme.css" />
+<script type="text/javascript">
+var DEBUG_ANDROID_THEME=true
+</script>
+<script type="text/javascript" src="js/jquery.mobile.android-theme.js"></script>
+</head>
+<body>
+  <div data-role="page" id="page1">
+    <div data-role="header">
+      <a href="#">前へ</a>
+      <h1>Androidライク</h1>
+      <a href="#">次へ</a>
+    </div>
+    <div data-role="navbar">
+      <ul>
+        <li><a href="#">ページ1</a></li>
+        <li><a href="#">ページ2</a></li>
+        <li><a href="#">ページ3</a></li>
+      </ul>
+    </div>
+    <div data-role="content">
+      <div class="ui-grid-a">
+        <div class="ui-block-a"><a href="#" data-role="button">ボタン1</a></div>
+        <div class="ui-block-b"><a href="#" data-role="button">ボタン2</a></div>
+      </div>
+      <div data-role="fieldcontain">
+        <fieldset data-role="controlgroup">
+          <legend>好きな動物は</legend>
+          <input type="radio" name="radio-choice-1" id="radio-choice-1" value="choice-1" />
+          <label for="radio-choice-1">ねこ</label>
+          <input type="radio" name="radio-choice-1" id="radio-choice-2" value="choice-2" />
+          <label for="radio-choice-2">猫</label>
+          <input type="radio" name="radio-choice-1" id="radio-choice-3" value="choice-3" />
+          <label for="radio-choice-3">Cat</label>
+        </fieldset>
+      </div>
+      <div data-role="fieldcontain">
+        <label for="select-choice" class="select">あなたの性別は</label>
+        <select name="select-choice" id="select-choice">
+          <option value="choice-1">男</option>
+          <option value="choice-2">女</option>
+          <option value="choice-3">どちらでもない</option>
+        </select>
+      </div>
+    </div>
+    <div data-role="footer">
+      <div data-role="navbar">
+        <ul>
+          <li><a href="#" id="page1">ページ1</a></li>
+          <li><a href="#" id="page2" class="ui-btn-active">ページ2</a></li>
+          <li><a href="#" id="page3">ページ3</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

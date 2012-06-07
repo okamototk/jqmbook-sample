@@ -1,0 +1,9 @@
+/* ヘッダのタイトル文字数を増やす */
+.ui-header .ui-title {
+  margin: .6em 20px .8em;
+}
+/* ツールバーの横幅を変更する */
+.ui-page-header-fullscreen .ui-content, .ui-page-footer-fullscreen .ui-content {
+  padding-left: 15px;
+  padding-right: 15px;
+}

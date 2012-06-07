@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>リストビュー</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css"/>
+<link rel="stylesheet" href="css/custom.css"/>
+<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+<script src="js/custom.js"></script>
+</head>
+<body>
+  <div data-role="page" id="p-listview-split-button">
+    <div data-role="content">
+      <h3>分割されたボタン付きリスト</h3>
+      <ul data-role="listview" data-inset="true">
+        <li>
+        <a href="#">
+          <img src="images/thumb01.jpg" />
+          <h3>要素1</h3>
+          <p>要素1の説明</p>
+        </a>
+        <a href="#">編集</a>
+        </li>
+        <li>
+        <a href="#">
+          <img src="images/thumb02.jpg" />
+          <h3>要素2</h3>
+          <p>要素2の説明</p>
+        </a>
+        <a href="#">編集</a>
+        </li>
+      </ul>
+      <h3>アイコン一括指定</h3>
+      <ul data-role="listview" data-inset="true" data-split-icon="edit">
+        <li>
+        <a href="#">
+          <img src="images/thumb01.jpg" />
+          <h3>要素1</h3>
+          <p>要素1の説明</p>
+        </a>
+        <a href="#">編集</a>
+        </li>
+        <li>
+        <a href="#">
+          <img src="images/thumb02.jpg" />
+          <h3>要素2</h3>
+          <p>要素2の説明</p>
+        </a>
+        <a href="#">編集</a>
+        </li>
+      </ul>
+      <h3>アイコン個別指定</h3>
+      <ul data-role="listview" data-inset="true">
+        <li>
+        <a href="#">
+          <img src="images/thumb01.jpg" />
+          <h3>要素1</h3>
+          <p>要素1の説明</p>
+        </a>
+        <a href="#" data-icon="home">ホーム</a>
+        </li>
+        <li>
+        <a href="#">
+          <img src="images/thumb02.jpg" />
+          <h3>要素2</h3>
+          <p>要素2の説明</p>
+        </a>
+        <a href="#" data-icon="star">お気に入り</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

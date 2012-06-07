@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html manifest="hello.appcache"> 
+<head>
+<title>アプリケーションキャッシュ</title>
+<meta charset="utf-8" >
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/> 
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" > 
+<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script>
+$(document).on("mobileinit", function(){
+  // Androidの場合アプリケーションキャッシュを利用すると
+  // Ajaxによる画面遷移でエラーになるため無効にする
+  if (navigator.userAgent.match(/Android/)){
+    $.mobile.ajaxEnabled = false;
+  }
+  
+  if(applicationCache){
+    // 新しいバージョンを検出したら、アップデートを実行
+    applicationCache.addEventListener("updateready", function(){
+      if(confirm("新しいバージョンが利用できます。アップデートしますか?")){
+        applicationCache.swapCache();
+        location.reload();
+      }
+    } ,true);
+  }
+
+  // 講師新しいバージョンを検出したら、アップデートを実行
+  $(document).on("#update", "click", function(e){
+    applicationCache.update();  
+  });
+
+});
+</script>
+<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+</head>
+<body>                                              
+
+<div data-role="page" id="p-appcache1">
+<!-- ヘッダー部 -->
+<div data-role="header" >
+  <h1>アプリキャッシュ</h1>
+</div>
+<!-- コンテンツ本体 -->
+<div data-role="content">
+このページは、アプリケーションキャッシュのサンプルです。
+アプリケーションの更新を自動検出することができます。
+また、下記のボタンから手動で更新することができます。
+<button id="update">アプリを更新</button>
+<a href="appcache2.html">次の画面へ移動</a>
+</div>
+</div>
+</body>
+</html>
+

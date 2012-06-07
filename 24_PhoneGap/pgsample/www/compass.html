@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<title>コンパス</title>
+<link rel="stylesheet" href="css/jquery.mobile-1.1.0.min.css"/>
+<link rel="stylesheet" href="css/custom.css"/>
+<script src="cordova-1.7.0.js"></script>
+<script src="js/jquery-1.7.1.min.js"></script>
+<script src="js/jquery.mobile-1.1.0.min.js"></script>
+<script>
+var wid = null;
+
+$(document).on("pageinit", "#p-heading", function(e){
+  $(this).on("change", "#headingswitch", function(e){
+    if(this.value=="on" && wid==null){
+      // コンパス測定開始
+      wid = navigator.compass.watchHeading(function(e){
+          $("#trueHeading").text(e.trueHeading);
+          $("#magneticHeading").text(e.magneticHeading);
+          $("#headingAccuracy").text(e.headingAccuracy);
+          $("#timestamp").text(e.timestamp);
+        },
+        function(e){
+          console.log("エラー:"+e);
+        },
+        {frequency: 3000 /* 0.5ms間隔で加速度を取得 */}
+      );
+    } else {
+      if(wid){
+        // コンパス停止
+        navigator.compass.clearWatch(wid);
+        wid = null;
+      }
+    }
+
+  }); // change
+
+  // PhoneGap初期化処理
+  deviceReady = false;
+  document.addEventListener("deviceready", function(){
+    deviceReady = true;
+
+    console.log = function(msg) {
+    	$("#log").append(msg + "<br />");
+    }
+
+    console.log("デバイス:" + device.platform + " " + device.version);
+    
+  } , false);
+
+  window.setTimeout(function() {
+    if (!deviceReady) {
+      alert("PhoneGapの初期化に失敗しました");
+    }
+  }, 5000);
+  
+});
+</script>
+</head>
+<body>
+  <div data-role="page" id="p-heading">
+    <div data-role="header">
+      <a href="index.html" data-icon="arrow-l">戻る</a>    
+      <h3>コンパス</h3>
+    </div>
+    <div data-role="content">
+      方角:<span id="trueHeading"></span><br />
+      方角（磁気):<span id="magneticHeading"></span><br />
+      方角の精度:<span id="headingAccuracy"></span><br />
+      取得時刻:<span id="timestamp"></span><br />
+      <div data-role="fieldcontain">
+      	<label for"headingswitch">取得</label>
+        <select id="headingswitch" name="headingswitch" data-role="slider">
+          <option value="off" selected>停止</option>
+          <option value="on">実行</option>
+        </select>
+      </div>
+      <hr />
+      <div id="log"></div>
+    </div>
+  </div>
+</body>
+</html>

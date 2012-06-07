@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<link rel="stylesheet" href="css/jquery.mobile-1.1.0.min.css"/>
+<link rel="stylesheet" href="css/custom.css"/>
+<script src="cordova-1.7.0.js"></script>
+<script src="js/jquery-1.7.1.min.js"></script>
+<script src="js/jquery.mobile-1.1.0.min.js"></script>
+<script>
+var wid = null;
+
+$(document).on("pageinit", "#p-accel", function(e){
+  $(this).on("change", "#accelswitch", function(e){
+    if(this.value=="on" && wid==null){
+      // 加速度センサ測定開始
+      wid = navigator.accelerometer.watchAcceleration(function(e){
+          $("#x").text(e.x);
+          $("#y").text(e.y);
+          $("#z").text(e.z);
+        },
+        function(e){
+          console.log("加速度センサ初期化エラー:"+e);
+        },
+        {frequency: 500 /* 0.5ms間隔で加速度を取得 */}
+      );
+    } else {
+      if(wid){
+        // 加速度センサ測定停止
+        navigator.accelerometer.clearWatch(wid);
+        wid = null;
+      }
+    }
+  }); // change
+
+  deviceReady = false;
+  document.addEventListener("deviceready", function(){
+    deviceReady = true;
+
+    console.log = function(msg) {
+      $("#log").append(msg + "<br />")
+    }
+
+    console.log("デバイス:" + device.platform + " " + device.version);
+
+  } , false);
+
+  window.setTimeout(function() {
+    if (!deviceReady) {
+      alert("PhoneGapの初期化に失敗しました");
+    }
+  }, 5000);
+
+});// pageinit
+
+</script>
+</head>
+<body>
+  <div data-role="page" id="p-accel">
+    <div data-role="header">
+      <a href="index.html" data-icon="arrow-l">戻る</a>    
+      <h3>加速度センサー</h3>
+    </div>
+    <div data-role="content">
+      x:<div id="x"></div>
+      y:<div id="y"></div>
+      z:<div id="z"></div>
+      加速度の取得
+      <select id="accelswitch" data-role="slider">
+        <option value="off" selected>停止</option>
+        <option value="on">実行</option>
+      </select>
+      <hr />
+      <div id="log"></div>
+    </div>
+  </div>
+</body>
+</html>

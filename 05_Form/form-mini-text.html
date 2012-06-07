@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>フォーム</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css"/>
+<link rel="stylesheet" href="css/custom.css"/>
+<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+</head>
+<body>
+  <div data-role="page" id="p-form-mini">
+    <div data-role="header">
+      <h2>ミニサイズ</h2>
+    </div>
+    <div data-role="content">
+      <h3>チェックボックス</h3>
+      <div data-role="fieldcontain">
+        <fieldset data-role="controlgroup" data-mini="true">
+          <legend>トッピング</legend>
+          <input type="checkbox" name="checkbox-1" id="checkbox-1" />
+          <label for="checkbox-1">チーズ</label>
+          <input type="checkbox" name="checkbox-2" id="checkbox-2" />
+          <label for="checkbox-2">コーン</label>
+          <input type="checkbox" name="checkbox-3" id="checkbox-3" />
+          <label for="checkbox-3">トマト</label>
+          <input type="checkbox" name="checkbox-4" id="checkbox-4" />
+          <label for="checkbox-4">バジル</label>
+        </fieldset>
+      </div>
+
+      <h3>テキストボックス</h3>
+      <div data-role="fieldcontain">
+        <label for="username">ミニサイズ</label>
+        <input type="text" name="username" id="username" value="" placeholder="ユーザ名" data-mini="true" />
+      </div>
+
+      <h3>テキストエリア</h3>
+      <div data-role="fieldcontain">
+        <label for="textarea-1">テキストエリア</label>
+        <textarea name="textarea" id="textarea-1" data-mini="true"></textarea>
+      </div>
+
+      <h3>検索ボックス</h3>
+      <div data-role="fieldcontain">
+        <label for="search">search</label>
+        <input type="search" name="search" id="search" data-mini="true"/>
+      </div>
+
+      <h3>スライダー</h3>
+      <div data-role="fieldcontain">
+        <label for="slider">range</label>
+        <input type="range" name="slider" id="slider" value="25" min="0" max="100" step="5" data-highlight="true" data-mini="true"/>
+      </div>
+
+      <h3>フリップスイッチ</h3>
+      <div data-role="fieldcontain">
+        <label for="flip-a"></label>
+        <select name="slider" id="flip-a" data-role="slider" data-mini="true">
+          <option value="off">Off</option>
+          <option value="on">On</option>
+        </select>
+      </div>
+
+      <h3>ラジオ</h3>
+      <div data-role="fieldcontain">
+        <fieldset data-role="controlgroup" data-mini="true">
+          <legend>ペットを選んでください</legend>
+          <input type="radio" name="radio-choice-1" id="radio-choice-1" value="choice-1" checked="checked" />
+          <label for="radio-choice-1">犬</label>
+          <input type="radio" name="radio-choice-1" id="radio-choice-2" value="choice-2"  />
+          <label for="radio-choice-2">ネコ</label>
+          <input type="radio" name="radio-choice-1" id="radio-choice-3" value="choice-3"  />
+          <label for="radio-choice-3">ハムスター</label>
+        </fieldset>
+      </div>
+
+      <h3>チェックボックス</h3>
+      <div data-role="fieldcontain">
+        <fieldset data-role="controlgroup" data-mini="true">
+          <legend>経験のある言語</legend>
+          <input type="checkbox" name="checkbox-1" id="checkbox-1" />
+          <label for="checkbox-1">C</label>
+          <input type="checkbox" name="checkbox-2" id="checkbox-2" />
+          <label for="checkbox-2">Java</label>
+          <input type="checkbox" name="checkbox-3" id="checkbox-3" />
+          <label for="checkbox-3">JavaScript</label>
+        </fieldset>
+      </div>
+
+      <h3>セレクトメニュー</h3>
+      <div data-role="fieldcontain">
+        <label for="select-choice-1">年齢</label>
+        <select name="select-choice-1" id="select-choice-1" data-mini="true">
+          <option value="10">0歳～10歳</option>
+          <option value="20">10歳～20歳</option>
+          <option value="30">20歳～30歳</option>
+          <option value="over30">30歳～</option>
+        </select>
+      </div>
+
+    </div>
+    <div data-role="footer">
+      <h2>フッタ</h2>
+    </div>
+  </div>
+</body>
+</html>

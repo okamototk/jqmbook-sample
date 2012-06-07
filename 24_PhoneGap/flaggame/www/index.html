@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>フラグ取りゲーム</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" href="css/jquery.mobile-1.1.0.min.css" />
+<link rel="stylesheet" href="css/flaggame.css" />
+<script src="cordova-1.7.0.js"></script>
+<script src="js/jquery-1.7.1.min.js"></script>
+<script src="js/jquery.mobile-1.1.0.min.js"></script>
+<script src="js/flaggame.js"></script>
+</head>
+<body>
+  <div data-role="page" id="p-flaggame">
+    <div data-role="header">
+      <h1>フラグ取りゲーム</h1>
+    </div>
+    <div data-role="content" id="content">
+      <div id="field">
+        <div id="ball"></div>
+      </div>
+      <div id="elaspedview" data-role="fieldcontain">
+        経過時間: <span id="elasped">0.000</span>秒
+      </div>
+      <a href="#" data-role="button" id="start">開始</a>
+    </div>
+    <div data-role="footer">
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>仮想マウスイベント</title>
+<meta charset="utf-8" >
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta name="format-detection" content="telephone=no">
+<link href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" rel="stylesheet"/>
+<style>
+table {
+  width: 100%;
+  border-spacing: 0px;
+}
+th {
+  border: black solid 1px;
+  text-align: center;
+  border-spacing: 0px;
+  }
+td {
+  width: 50%;
+  height: 200px;
+  border: black solid 1px;
+  text-align: center;
+}
+td div {
+  position: absolute; 
+  width: 10px;
+  height: 10px;
+  border: red solid 1px;
+}
+.ui-header .ui-title {
+  margin: .6em 20px;
+}
+</style>
+<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+<script>
+$(document).on("pageinit", "#p-vmouse", function() {
+  $("#click").on("click", function(e) {
+    e.preventDefault();
+    var o = $("#mark-click");
+    o.css("left", e.pageX + "px");
+    o.css("top", e.pageY + "px");
+  });
+  $("#vclick").on("vclick", function(e) {
+    e.preventDefault();
+    var o = $("#mark-vclick");
+    o.css("left", e.pageX + "px");
+    o.css("top", e.pageY + "px");
+  });
+  $("#mousedown").on("mousedown", function(e) {
+    e.preventDefault();
+    var o = $("#mark-mousedown");
+    o.css("left", e.pageX + "px");
+    o.css("top", e.pageY + "px");
+  });
+  $("#vmousedown").on("vmousedown", function(e) {
+    e.preventDefault();
+    var o = $("#mark-vmousedown");
+    o.css("left", e.pageX + "px");
+    o.css("top", e.pageY + "px");
+  });
+  $("#mouseup").on("mouseup", function(e) {
+    e.preventDefault();
+    var o = $("#mark-mouseup");
+    o.css("left", e.pageX + "px");
+    o.css("top", e.pageY + "px");
+  });
+  $("#vmouseup").on("vmouseup", function(e) {
+    e.preventDefault();
+    var o = $("#mark-vmouseup");
+    o.css("left", e.pageX + "px");
+    o.css("top", e.pageY + "px");
+  });
+  $("#mousemove").on("mousemove", function(e) {
+    e.preventDefault();
+    var o = $("#mark-mousemove");
+    o.css("left", e.pageX + "px");
+    o.css("top", e.pageY + "px");
+  });
+  $("#vmousemove").on("vmousemove", function(e) {
+    e.preventDefault();
+    var o = $("#mark-vmousemove");
+    o.css("left", e.pageX + "px");
+    o.css("top", e.pageY + "px");
+  });
+  $("#mouseover").on("mouseover", function(e) {
+    e.preventDefault();
+    var o = $("#mark-mouseover");
+    o.css("left", e.pageX + "px");
+    o.css("top", e.pageY + "px");
+  });
+  $("#vmouseover").on("vmouseover", function(e) {
+    e.preventDefault();
+    var o = $("#mark-vmouseover");
+    o.css("left", e.pageX + "px");
+    o.css("top", e.pageY + "px");
+  });
+});
+</script>
+</head>
+<body>
+<div data-role="page" id="p-vmouse">
+  <div data-role="header">
+    <h2>仮想マウスイベント</h2>
+  </div>
+  <div data-role="content">
+    このサンプルは、仮想マウスイベントとマウスイベントを比較するためのサンプルです。
+    <table>
+      <tr>
+        <th>マウス
+        <br />
+        イベント</th><th>仮想マウス
+        <br />
+        イベント</th>
+      </tr>
+      <tr>
+        <td id="click">click<div id="mark-click"></div></td>
+        <td id="vclick">vclick<div id="mark-vclick"></div></td>
+      </tr>
+      <tr>
+        <td id="mousedown">mousedown<div id="mark-mousedown"></div></td>
+        <td id="vmousedown">vmousedown<div id="mark-vmousedown"></div></td>
+      </tr>
+      <tr>
+        <td id="mouseup">mouseup<div id="mark-mouseup"></div></td>
+        <td id="vmouseup">vmouseup<div id="mark-vmouseup"></div></td>
+      </tr>
+      <tr>
+        <td id="mousemove">mousemove<div id="mark-mousemove"></div></td>
+        <td id="vmousemove">vmousemove<div id="mark-vmousemove"></div></td>
+      </tr>
+      <tr>
+        <td id="mouseover">mouseover<div id="mark-mouseover"></div></td>
+        <td id="vmouseover">vmouseover<div id="mark-vmouseover"></div></td>
+      </tr>
+    </table>
+  </div>
+</div>
+</body>
+</html>

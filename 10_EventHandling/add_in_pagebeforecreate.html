@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html> 
+  <head>
+    <title>pagebeforecreateイベントの中でボタンを追加</title>
+    <meta charset="utf-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css"/>
+    <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+    <script>
+      $(document).on("pagebeforecreate", "#p-pagebeforecreate", function(){
+        $("#box").append("<button>追加されたボタン</button>");
+      });
+    </script>
+  </head>
+  <body>
+    <div data-role="page" id="p-pagebeforecreate">
+      <div data-role="header">
+        <h2>pagebeforecreateイベントの中で<br />ボタンを追加</h2>
+      </div>
+      <div data-role="content">
+	<div id="box"></div>
+      </div>
+    </div>
+  </body>
+</html>

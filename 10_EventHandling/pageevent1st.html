@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html> 
+<head>
+  <meta charset="utf-8" >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/> 
+  <link href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" rel="stylesheet"/>
+  <script src="http://code.jquery.com/jquery-1.7.1.min.js" ></script>
+  <script src="js/pageevent.js"></script>
+  <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js" ></script>
+</head>
+<body>
+<script>
+console.log("running script in body(p-1st)");
+</script>
+<div data-role="page" id="p-1st">
+  <script>
+  console.log("running script(p-1st)");
+  </script>
+  <div data-role="header" data-position="fixed">
+    <h1>画面遷移イベントテスト</h1>
+  </div>
+  <div data-role="content">
+    このサンプルは、画面遷移イベントが発生するごとにログを出力します。下のボタンを押して、ブラウザのログを見ると画面遷移時のイベントの発火順序を確認できます。
+    <ul data-role="listview" data-inset="true">
+      <li><a href="pageevent2nd.html">画面遷移イベントのテスト</a></li>
+    </ul>
+  </div>
+</div>
+</body>
+</html>

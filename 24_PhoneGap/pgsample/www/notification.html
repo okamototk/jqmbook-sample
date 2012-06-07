@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html> 
+<head>
+<meta charset="utf-8" >
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<title>通知機能</title> 
+<link rel="stylesheet" href="css/jquery.mobile-1.1.0.min.css"/>
+<link rel="stylesheet" href="css/custom.css"/>
+<script src="cordova-1.7.0.js"></script>
+<script src="js/jquery-1.7.1.min.js"></script>
+<script src="js/jquery.mobile-1.1.0.min.js"></script>
+<script>
+$(document).on("pageinit","#p-notification",function(e){
+
+  $(this).on("vclick","#beep",function(e){
+    console.log("beep");
+    navigator.notification.beep(1);
+  });
+
+  $(this).on("vclick","#vibrate",function(e){
+    console.log("vibrate");
+    navigator.notification.vibrate(500);
+  });
+  
+  $(this).on("vclick","#alert",function(e){
+    // WP7.5ではwindow.alertが利用できないのでnotification APIを利用
+    navigator.notification.alert("警告メッセージ", function(){
+      console.log("alert終了");
+    },"警告ダイアログ", "OK");
+  });
+
+  $(this).on("vclick","#confirm",function(e){
+    // WP7.5ではwindow.confirmが利用できないのでnotification APIを利用  
+    navigator.notification.confirm("確認メッセージ", function(e){
+      console.log(e+"が押されました");
+    },"確認ダイアログ", "キャンセル,実行");
+  });
+
+  deviceReady = false;
+  document.addEventListener("deviceready", function(){
+    deviceReady = true;
+    console.log = function(msg){
+      $("#log").append(msg+"<br />");
+    };
+    console.log("プラットフォーム:" + device.platform + " " + device.version);
+
+  } , false);
+
+
+  window.setTimeout(function() {
+  if (!deviceReady) {
+  alert("PhoneGapの初期化に失敗しました");
+  }
+  }, 5000);
+
+  }); // pageinit
+
+
+
+</script>
+</head>
+<body>
+<div data-role="page" id="p-notification">
+  <div data-role="header">
+    <a href="index.html" data-icon="arrow-l">戻る</a>    
+    <h3>通知機能</h3>
+  </div>
+  <div data-role="content">
+    <ul data-role="listview">		
+      <li><a href="#" id="beep">ビープ</a></li>
+      <li><a href="#" id="vibrate">バイブ</a></li>
+      <li><a href="#" id="alert">警告</a></li>
+      <li><a href="#" id="confirm">確認</a></li>      
+   </ul>
+    <hr />
+    <div id="log"></div>
+ </div>
+</div>
+</body>

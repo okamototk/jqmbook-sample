@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSSクラスによる入力チェック</title>
+<meta charset="utf-8" >
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" >
+<link rel="stylesheet" href="../css/custom.css" >
+<link rel="stylesheet" href="css/error.css" >
+<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script src="js/jquery.validate.js"></script>
+<script src="js/messages_ja.js"></script>
+<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+<script>
+$(document).on('pageinit', "#p-validation-class", function(e){
+  $("#form").validate({});
+});
+</script>
+</head>
+<body>
+<div data-role="page" id="p-validation-class">
+  <div data-role="header">
+    <h2>CSSクラスによるチェック</h2><br>
+  </div>
+  <div data-role="content">
+    <p>
+      &lt;input type="text" class="xxx" ...&gt;によるCSSクラスで入力値のチェックを行います。
+    </p>
+
+    <form id="form" method="get" action="">
+
+      <input type="submit" class="submit" value="送信">
+
+      <hr />
+
+      <fieldset>
+        <label>必須チェック(class=required)</label>
+        <input type="text" name="required" id="required" class="required" />
+      </fieldset>
+
+      <hr />
+
+      <fieldset>
+        <label>メールアドレス(class=email)</label>
+        <input type="text" name="email" id="email" class="email" required />
+        (例:hoge@example.com)
+      </fieldset>
+
+      <hr />
+
+      <fieldset>
+        <label>URL(class=url)</label>
+        <input type="text" name="url" id="url" class="url" required />
+        (例:http://hogesoft.com/download/)
+      </fieldset>
+
+      <hr />
+
+      <fieldset>
+        <label>日付(class=date)</label>
+        <input type="text" value="" name="date" id="date" class="date" required />
+        (例:2012-06-16, Dec 11,2012, December 11,2012)
+      </fieldset>
+
+      <hr />
+
+      <fieldset>
+        <label>日付(class=dateISO)</label>
+        <input type="text" value="" name="dateiso" id="dateiso" class="dateISO" required />
+        (例:2011-11-10)
+      </fieldset>
+
+      <hr />
+
+      <fieldset>
+        <label>自然数(class=number)</label>
+        <input type="text" value="" id="number" class="number" required />
+        (例: 1234,-123)
+      </fieldset>
+
+      <hr />
+
+      <fieldset>
+        <label>数字(class=digit)</label>
+        <input type="text" value="" id="digit" class="digit" required />
+        (例: 1234)
+      </fieldset>
+
+      <hr />
+
+      <fieldset>
+        <label>クレジットカード番号(class=creditcard)</label>
+        <input type="text" name="creditcard" id="creditcard" class="creditcard" required />
+        (例: 1234567890123456(16桁の数字))
+      </fieldset>
+
+    </form>
+
+  </div>
+</div>
+</body>
+</html>

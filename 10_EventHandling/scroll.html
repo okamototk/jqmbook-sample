@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>scrollイベント</title>
+<meta charset="utf-8" >
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css"/>
+<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+<script>
+$(window).on("scrollstop", function(e){
+  if((document.body.scrollTop+window.innerHeight)==document.height){
+    for(i=0;i<10;i++){
+      var val = Math.floor( Math.random() * 100000);      
+      $("ul").append("<li>"+val+"</li>");
+    }
+    $("ul").listview("refresh");
+  }
+  
+});
+</script>
+</head>
+<body>
+<div data-role="page" id="p-scroll" >
+  <div data-role="header">
+    <h2>scrollイベント</h2>
+   </div>
+  <div data-role="content">
+     <p>
+       画面に指を触れ、上にスワイプさせると、新しいデータを読み込みます。
+     </p>
+     <ul data-role="listview" data-inset="true">
+       <li>12345</li>
+     </ul>
+   </div>
+</div>
+</body>
+</html>

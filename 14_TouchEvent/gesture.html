@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html> 
+<head>
+  <meta charset="utf-8" >
+  <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no"> 
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" > 
+<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script>
+console.log = function(msg){
+  $("#log").append(msg+"<br/>");
+};
+</script>
+<script src="js/jquery.touch.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+<script>
+currentScale = 0;
+currentRotation = 0;
+scale=1.0;
+rotation = 0;
+$(document).on("pageinit", "#p-gesture", function(e){
+  $(this).on("touchmove", function(e){
+    if(e.touches.length==2){
+      currentScale = scale*e.scale;
+      var s = "scale("+currentScale+")";
+      currentRotation = rotation + e.rotation;
+      if(currentRotation>360)currentRotration=currentRotation-360;
+      var r = " rotate("+currentRotation+"deg)";
+      $("#object").css("-webkit-transform",s+r);
+      event.preventDefault();
+    }
+  });
+
+  $(this).on("touchend", function(e){
+    _gestureInit = false;
+    scale = currentScale;
+    rotation = currentRotation;
+  });
+
+});
+</script>
+</head>                                             
+<body>                                              
+<div data-role="page" id="p-gesture" >
+   <div data-role="header">
+   </div>
+   <div data-role="content">
+     ２つの指で四角をつかんで、拡大・縮小や回転させてみてください。
+     <div id="gesture" style="border: solid 1px black; height:300px;width: 320px;">
+       <div id="object" style="border: solid 1px red; height:100px;width: 100px;margin:100px;"></div>
+     </div>
+     <div id="log"></div>
+   </div>
+</div>
+</body>
+</html>
