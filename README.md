@@ -6,7 +6,7 @@
 
 
 * 『jQuery Mobileスマートフォンアプリ開発』サンプル
- * TODO:URL
+ * http://www.sbcr.jp/products/4797368734.html
 
 各ファイル・ディレクトリの説明と、『jQuery Mobileスマートフォンアプリ開発』の
 対応は下記の通りです。
