@@ -64,3 +64,23 @@ Windowsの場合、Xamppを利用するのが良いでしょう。
 jQuery MobileはAjaxを利用して通信を行うため、ローカルのフォルダを直接参照して
 ファイルを開いても正しく動作しないので、ご注意ください。
 
+アップデートの注意
+------------------
+
+本書出版移行、バージョンアップしたライブラリを利用する際の注意を記載します。
+
+### jQuery Mobile 1.1.1
+
+特にありません。
+
+### PhoneGap 2.0.0
+
+24章で解説しているEvent APIのbackbutton, menubutton,searchbuttonイベントがjQueryで
+ハンドリングできなくなっています。下記の様にaddEventListenerをご利用ください。
+
+```
+    document.addEventListener("backbutton",  function() {
+      // Androidのみ
+      console.log("戻るボタン");
+    }, false);
+```
