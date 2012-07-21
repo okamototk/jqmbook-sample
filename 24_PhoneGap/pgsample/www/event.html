@@ -44,20 +44,38 @@ $(document).on("pageinit", "#p-event", function() {
       console.log("電池切れ");
     });
 
-    $(document).on("backbutton", function() {
-      // Android/Windows Phoneで動作
+    /* PhoneGap 2.0.0では、jQueryでイベント追加しても動作しない */
+    document.addEventListener("backbutton",  function() {
+      // Androidのみ
       console.log("戻るボタン");
-    });
-
-    $(document).on("menubutton", function() {
+    }, false);
+       
+    // $(document).on("backbutton", function() {
+    //   // Android/Windows Phoneで動作
+    //   console.log("戻るボタン");
+    // });
+    
+    document.addEventListener("menubutton",  function() {
       // Androidのみ
       console.log("メニューボタン");
-    });
+    }, false);
 
-    $(document).on("searchbutton", function() {
+    /* PhoneGap 2.0.0では、jQueryでイベント追加しても動作しない */
+    // $(document).on("menubutton", function(e) {
+    //   // Androidのみ
+    //   console.log("メニューボタン");
+    // });
+
+    document.addEventListener("searchbutton",  function() {
       // Androidのみ
       console.log("検索ボタン");
-    });
+    }, false);
+    
+    /* PhoneGap 2.0.0では、jQueryでイベント追加しても動作しない */    
+    // $(document).on("searchbutton", function() {
+    //   // Androidのみ
+    //   console.log("検索ボタン");
+    // });
   
   } , false);
 
