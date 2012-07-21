@@ -32,9 +32,13 @@ function saveContact(){
   contact.emails = emails;
               
   contact.save(function(contact) {
-     console.log("登録しました:"+contact);
+    navigator.notification.alert("登録しました", function(){
+    },"登録完了", "OK");
+    console.log("登録しました:"+contact);
    },
    function(e) {
+     navigator.notification.alert("登録に失敗しました", function(){
+     },"登録失敗", "OK");
      console.log("登録に失敗しました:" + e.code);
    });
 }
