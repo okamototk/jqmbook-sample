@@ -82,7 +82,7 @@ $(document).on('pageinit','#p-flaggame',function(e) {
     (function timer() {
       $('#elasped').html((new Date().getTime() - startTime) / 1000);
       if (timerContinue) {
-        setTimeout(timer, 10);
+        setTimeout(timer, 200);
       }
     })();
   });
@@ -91,7 +91,7 @@ $(document).on('pageinit','#p-flaggame',function(e) {
   document.addEventListener("deviceready", function(){
     wid = navigator.accelerometer.watchAcceleration(onDeviceMotion,function(e){
       navigator.notification.alert("加速度センサーの初期化に失敗しました");
-    },{frequency: 50});
+    },{frequency: 200});
   } , false);
 
 });
