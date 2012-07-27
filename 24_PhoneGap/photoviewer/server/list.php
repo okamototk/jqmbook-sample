@@ -1,4 +1,4 @@
-<?
+<?php
 $IMG_DIR = 'images/';
 
 $dir = opendir(__DIR__."/".$IMG_DIR);

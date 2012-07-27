@@ -4,11 +4,11 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 <title>イベント処理</title>
-<link rel="stylesheet" href="css/jquery.mobile-1.1.0.min.css"/>
+<link rel="stylesheet" href="css/jquery.mobile-1.1.1.min.css"/>
 <link rel="stylesheet" href="css/custom.css"/>
-<script src="cordova-1.7.0.js"></script>
+<script src="cordova-2.0.0.js"></script>
 <script src="js/jquery-1.7.1.min.js"></script>
-<script src="js/jquery.mobile-1.1.0.min.js"></script>
+<script src="js/jquery.mobile-1.1.1.min.js"></script>
 <script>
 $(document).on("pageinit", "#p-event", function() {
 
@@ -44,20 +44,38 @@ $(document).on("pageinit", "#p-event", function() {
       console.log("電池切れ");
     });
 
-    $(document).on("backbutton", function() {
-      // Android/Windows Phoneで動作
+    /* PhoneGap 2.0.0では、jQueryでイベント追加しても動作しない */
+    document.addEventListener("backbutton",  function() {
+      // Androidのみ
       console.log("戻るボタン");
-    });
-
-    $(document).on("menubutton", function() {
+    }, false);
+       
+    // $(document).on("backbutton", function() {
+    //   // Android/Windows Phoneで動作
+    //   console.log("戻るボタン");
+    // });
+    
+    document.addEventListener("menubutton",  function() {
       // Androidのみ
       console.log("メニューボタン");
-    });
+    }, false);
 
-    $(document).on("searchbutton", function() {
+    /* PhoneGap 2.0.0では、jQueryでイベント追加しても動作しない */
+    // $(document).on("menubutton", function(e) {
+    //   // Androidのみ
+    //   console.log("メニューボタン");
+    // });
+
+    document.addEventListener("searchbutton",  function() {
       // Androidのみ
       console.log("検索ボタン");
-    });
+    }, false);
+    
+    /* PhoneGap 2.0.0では、jQueryでイベント追加しても動作しない */    
+    // $(document).on("searchbutton", function() {
+    //   // Androidのみ
+    //   console.log("検索ボタン");
+    // });
   
   } , false);
 
