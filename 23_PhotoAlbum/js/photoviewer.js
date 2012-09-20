@@ -79,7 +79,7 @@ $(document).on('pagebeforecreate', '#p-gallery', function(e) {
           if (confirm('iOSでの写真アップロードにはPicupが必要です。\nPicupをインストールしますか？')) {
             document.location = 'http://itunes.apple.com/jp/app/picup/id354101378';
           }
-      }, 2000);
+      }, 5000);
     });
   }
 });
