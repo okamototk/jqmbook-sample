@@ -37,8 +37,8 @@ $(document).on('pagebeforecreate', '#p-gallery', function(e) {
     }
   },200);
 }).on('pageinit', '#p-gallery', function(e) {
-  // iOSの場合はPicupを使用する
-  if (navigator.userAgent.match(/(iPhone|iPad|iPod)/i)) {
+  // iOS4.x/5.xの場合はPicupを使用する
+  if (navigator.userAgent.match(/(iPhone OS 4|iPhone OS 5)/i)) {
     // 追加ボタンのリンクを無効にする
     $('#add-photo-btn', this).attr('href', '#');
     // ヘッダの追加ボタンを押すと直接Picupを起動するようにする
