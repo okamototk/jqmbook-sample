@@ -55,7 +55,9 @@ $(document).on('pagebeforecreate' ,'#p-gallery' ,function(e){
 });
 
 $(document).on('pageinit', '#p-add-photo', function(e){
-  
+
+  $.event.special.tap.tapholdThreshold = 700;
+
   $(this).on('click', '#capture', function(e){
     var sourceType;
     
