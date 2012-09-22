@@ -4,14 +4,14 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 <title>カメラ</title>
-<link rel="stylesheet" href="css/jquery.mobile-1.1.0.min.css"/>
+<link rel="stylesheet" href="css/jquery.mobile-1.2.0.min.css"/>
 <link rel="stylesheet" href="css/custom.css"/>
-<script src="cordova-1.7.0.js"></script>
+<script src="cordova-2.1.0.js"></script>
 <script src="js/jquery-1.8.1.min.js"></script>
-<script src="js/jquery.mobile-1.1.0.min.js"></script>
+<script src="js/jquery.mobile-1.2.0.min.js"></script>
 <script>
 // upload.phpをおいたURLを指定
-UPLOAD_URL = "http://ultimania.org/jqm/photoviewer/upload.php";
+UPLOAD_URL = "http://192.168.1.254/jqm/photoviewer/upload.php";
 var imgUrl = null;
 
 $(document).on("pageinit", "#p-camera", function() {
@@ -115,15 +115,15 @@ $(document).on("pageinit", "#p-camera", function() {
     </div>
     
     <div data-role="content">
-    <select id="sourceType" data-role="slider">
-      <option value="camera" selected>カメラ</option>    
-      <option value="folder">フォルダ</option>
-    </select> 
-    <button id="capture">画像取得</button>
-    <img style="visibility:hidden;display:none;" id="photoframe" src="" />
-    <button id="send">送信</button>
-    <hr />
-    <div id="log"></div>
+      <select id="sourceType" data-role="slider">
+        <option value="camera" selected>カメラ</option>    
+        <option value="folder">フォルダ</option>
+      </select> 
+      <button id="capture">画像取得</button>
+      <img style="visibility:hidden;display:none;" id="photoframe" src="" />
+      <button id="send">送信</button>
+      <hr />
+      <div id="log"></div>
     </div>
     
   </div>
