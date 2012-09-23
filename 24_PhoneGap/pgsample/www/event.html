@@ -66,16 +66,10 @@ $(document).on("pageinit", "#p-event", function() {
     //   console.log("メニューボタン");
     // });
 
-    document.addEventListener("searchbutton",  function() {
+    $(document).on("searchbutton", function() {
       // Androidのみ
       console.log("検索ボタン");
-    }, false);
-    
-    /* PhoneGap 2.0.0では、jQueryでイベント追加しても動作しない */    
-    // $(document).on("searchbutton", function() {
-    //   // Androidのみ
-    //   console.log("検索ボタン");
-    // });
+    });
   
   } , false);
 
