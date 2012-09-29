@@ -21,31 +21,38 @@ $(document).bind("mobileinit", function(){
   $.mobile.page.prototype.options.backBtnText = "戻る";
 });
 </script>
- <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js">
- </script>
-
+<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+<script>
+isFormLoaded = false;
+$(document).on("expand", "#lazyform", function(e,data){
+  if(!isFormLoaded){
+    $.ajax({
+      type: "POST",
+      url: "./formdata.html",
+      dataType: "html",
+      success: function(data){
+        $("#collapsible-form").append(data);
+        $("#collapsible-form").trigger("create");
+      },
+      error: function(msg){
+        alert(msg.responseText);
+      }
+    });
+  }
+});
+</script>
 </head>
 <body>                                              
 
 <div data-role="page" id="p-ajaxform">
 <!-- ヘッダー部 -->
 <div data-role="header" >
-  <h1>test</h1>
+  <h1>動的なフォーム挿入</h1>
   <a href="index.html" data-icon="edit" class="ui-btn-right">編集</a>
 </div>
 <!-- コンテンツ本体 -->
 <div data-role="content">
-<script>
-function addList(){
-  if($.trim($("#collapsible-form").html())==""){
-    $.post('./lazyform.html',null, function(data){
-      $("#collapsible-form").append(data);
-      $("#collapsible-form").trigger("create");
-    },"html");
-  }
-}
-</script>
-<div data-role="collapsible" data-collapsed="true" onclick="addList();" id="acordion" name="acordion">
+<div data-role="collapsible" data-collapsed="true" id="lazyform" name="lazyform" id="acordion" name="acordion">
 <h3>動的なフォームの挿入</h3>
 <form id="collapsible-form">
 </form>
