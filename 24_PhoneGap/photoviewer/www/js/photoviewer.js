@@ -1,4 +1,7 @@
-BASE_URL="http://192.168.1.254/jqm/photoviewer/";
+// 24_PhoneGap/photoviewer/serverフォルダを配置したWebサーバのURLを指定
+// (URLの最後に「/」を入れる)
+BASE_URL="http://192.168.1.1/jqmbook-sample/24_PhoneGap/photoviewer/server/";
+
 var imgUrl = null;
 
 // イメージのリストが読み込まれたかどうか
@@ -113,20 +116,12 @@ function upload(uri){
       opts.fileName=filename + ".jpg";
     }
 
-    // WP7ではparamsがないとboundaryがおかしくなる
-    // (Cordovaの次のバージョンで修正予定)
-    var params = new Object();
-    params.value1 = "wp7workaround";
-    params.value2 = "avoid bug";
-    opts.params = params;
-
     opts.mimeType="image/jpeg";
 
     var ft = new FileTransfer();
     ft.upload(uri, BASE_URL+"upload.php", function(r){
       alert("ファイル:"+opts.fileName+"をアップロードしました");
-      $("ul.gallery").append('<li><a href="'+BASE_URL+"images/"+filename+'" rel="external"><img src="'+BASE_URL+'thumb.php?path=images/'+filename+'" alt="'+filename+'"/></a></li>');//      $("#log").append(r);
-      $.mobile.changePage("#p-gallery");
+      location.reload();
     }, function(e){
       alert("アップロード失敗:"+e.code);
       $.mobile.changePage("#p-gallery");
