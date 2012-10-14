@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Adsense</title>
+<meta charset="utf-8" >
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+<script>
+$(document).on("pageshow","div[data-role='page']", function(e,data){
+  // 遷移先の画面から新しい広告領域(class="ad"の要素)を取得
+  toAD = $(e.target).find(".ad");
+  if(toAD.length==0){
+    // 新しい広告領域が見つからない場合は<div id="ad-content"></div>
+    // を新しい広告領域として設定
+    toAD = $("#ad-content");
+  }
+  // 古い広告領域(前の画面の広告領域)を取得
+  fromAD = $(data.prevPage.prevObject).find(".ad").find("iframe");
+
+  if(fromAD.length==0){  
+    // 前の画面に広告領域が存在しない場合、<div id="ad-content">から取得
+    fromAD = $("#ad-content").find("iframe");
+    $(fromAD).css("position", "relative");
+    $(fromAD).css("margin-bottom", "-3px");
+  }
+
+  // 広告を新しい広告領域へ移動
+  $(fromAD).appendTo($(toAD));
+});
+</script>
+
+</head>
+<body>
+<div id="ad-content">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-4760299421443540";
+google_ad_slot = "8363693069";
+google_ad_width = 320;
+google_ad_height = 50;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+<div data-role="page" id="p-scroll" >
+  <div data-role="header" data-position="fixed">
+    <a href="index.html" data-rel="back">戻る</a>
+    <h2>Adsense</h2>
+  </div>
+  <div data-role="content">
+    <p>
+      Google Adsenseを表示するサンプルです。別の画面に遷移しても&lt;div id="ad">&lt;/div>で指定した場所へ広告を埋め込めます。
+      <a href="adsense2.html">次の画面</a>
+    </p>
+    <ul data-role="listview" data-inset="false" id="list">
+      <li>12345</li>
+      <li>12345</li>
+      <li>12345</li>
+      <li>12345</li>
+      <li>12345</li>
+      <li>12345</li>
+      <li>12345</li>
+      <li>12345</li>
+      <li>12345</li>
+      <li>12345</li>
+      <li>12345</li>
+      <li>12345</li>
+      <li>12345</li>
+      <li>12345</li>
+      <li>12345</li>
+      <li>12345</li>
+      <li>12345</li>
+      <li>12345</li>
+      <li>12345</li>
+      <li>12345</li>
+      <li>12345</li>
+      <li>12345</li>
+      <li>12345</li>
+      <li>12345</li>
+      <li>12345</li>
+      <li>12345</li>
+    </ul>
+  </div>
+  <div data-role="footer" data-position="fixed">
+    <!-- 広告の埋め込み場所 -->
+    <div class="ad"></div>
+  </div>
+</div>
+</body>
+</html>

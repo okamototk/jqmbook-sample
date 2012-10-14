@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>トップに戻る矢印の表示</title>
+<meta charset="utf-8" >
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+<style>
+.back-top {
+    position: fixed;
+    bottom: 5px;
+    right:5px;
+    width: 48px;
+    height: 48px;
+    display: block;
+    background: rgba(200,200,200,0.5) url(up-arrow.png) no-repeat center center;
+    background-size:75%;
+    border-radius: 10px;
+    transition: 1s;
+}
+  
+.back-top:hover {
+    background-color: #777;
+}
+</style>
+<script>
+$(document).on("pageshow","div[data-role='page']", function(e,data){
+  // ボタン描画領域の取得
+  backTop = $(e.target).find(".back-top");
+  // ボタンを非表示
+  backTop.hide();
+  $(window).on("scrollstart", function(){
+    // スクロール中はボタンは非表示
+    backTop.hide();
+  });
+  $(window).on("scrollstop", function(){
+    // スクロールが停止し、1画面以上スクロールしている場合ボタンを表示
+    if ($(window).scrollTop() > screen.height) {
+      backTop.fadeIn();
+    }
+  });
+  // ボタンがクリックされると一番上までスクロール
+  backTop.on("click", function () {
+    $('body,html').animate({
+      scrollTop: 0
+    }, 500);
+    return false;
+  });
+});
+</script>
+
+</head>
+<body>
+<div data-role="page" id="p-topscroll" >
+  <div data-role="header">
+    <a href="index.html" data-rel="back">戻る</a>    
+    <h2>トップに戻る矢印の表示</h2>
+  </div>
+  <div data-role="content">
+    <p>
+      下の方にスクロールすると上に戻る矢印が現れます。
+    </p>
+    <ul data-role="listview" data-inset="false">
+      <li>12345</li>
+      <li>12345</li>
+      <li>12345</li>
+      <li>12345</li>
+      <li>12345</li>
+      <li>12345</li>
+      <li>12345</li>
+      <li>12345</li>
+      <li>12345</li>
+      <li>12345</li>
+      <li>12345</li>
+      <li>12345</li>
+      <li>12345</li>
+      <li>12345</li>
+      <li>12345</li>
+      <li>12345</li>
+      <li>12345</li>
+      <li>12345</li>
+      <li>12345</li>
+      <li>12345</li>
+      <li>12345</li>
+      <li>12345</li>
+      <li>12345</li>
+      <li>12345</li>
+      <li>12345</li>
+      <li>12345</li>
+      <li>12345</li>
+      <li>12345</li>
+      <li>12345</li>
+      <li>12345</li>
+      <li>12345</li>
+      <li>12345</li>
+      <li>12345</li>
+      <li>12345</li>
+      <li>12345</li>
+      <li>12345</li>
+    </ul>
+    <!-- 戻るボタン(下にスクロールしたときのみ表示される) -->
+    <a class="back-top"></a>
+  </div>
+</div>
+</body>
+</html>
