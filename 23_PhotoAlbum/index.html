@@ -33,7 +33,7 @@
     <h3>PhotoViewer</h3>
     <a href="#p-add-photo" data-rel="dialog" data-icon="add" class="ui-btn-right" id="add-photo-btn">追加</a>
   </div>
-  <div data-role="content" >
+  <div data-role="main" >
     <ul class="gallery" id="Gallery">
     </ul>
   </div>
@@ -47,7 +47,7 @@
   <div data-role="header">
     <h3>写真の追加</h3>
   </div>
-  <div data-role="content">
+  <div data-role="main">
     <form action="upload.php" method="post" enctype="multipart/form-data" data-ajax="false" data-role="fieldcontain">
       <label for="photo">写真の選択</label>
       <input type="file" accept="image/*" name="photo" id="photo" />
