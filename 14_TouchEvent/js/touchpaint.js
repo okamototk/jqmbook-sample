@@ -5,7 +5,7 @@ $(document).on("pageshow", "#p-touchpaint", function(){
   canvas = document.getElementById('drawable');
   ctx = canvas.getContext('2d');
   
-  $("#drawable").bind("touchmove", function(e){
+  $("#drawable").on("touchmove", function(e){
     ratioY = canvas.height / canvas.clientHeight;
     ratioX = canvas.width / canvas.clientWidth;
     e.preventDefault();

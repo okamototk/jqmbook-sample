@@ -58,8 +58,8 @@ $(document).on('pageshow', '#p-trend', function(e){
   
   $.jqplot.config.enablePlugins = true;
   lineplot = $.jqplot('trendchart', data, opts);
-
-  $(window).bind('orientationchange',function(ui,e){
+ 
+  $(window).on('orientationchange',function(ui,e){
     lineplot.replot();
   })
 })

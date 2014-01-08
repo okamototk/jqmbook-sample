@@ -28,7 +28,7 @@ if(typeof(page_popup_bubble)=="undefined"){
 
 
 /** bookmark bubble initialized in mobileinit event for jquery mobile. */
-$(document).bind("mobileinit", function(){
+$(document).on("mobileinit", function(){
 
  $(page_popup_bubble).live('pageinit',function() {
   window.setTimeout(function() {
