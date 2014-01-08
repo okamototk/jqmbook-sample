@@ -3,6 +3,6 @@
   margin: .6em 20px .8em;
 }
 /* カスタムアイコン */
-.ui-icon-myicon {
+.ui-icon-myicon:after {
     background-image: url("myicon.png");
 }
