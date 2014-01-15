@@ -1,7 +1,7 @@
-$(document).on("expand", "#collasible-list", function(e,data){
+$(document).on("collapsibleexpand", "#collasible-list", function(e,data){
   if($.trim($("#list").html())==""){
     send={'json':JSON.stringify(['みかん','りんご','マンゴー'])};
-    $.mobile.showPageLoadingMsg();
+    $('body').addClass('ui-loading');
     $.ajax({
       type: "POST",
       url: "./json.php",
@@ -12,9 +12,10 @@ $(document).on("expand", "#collasible-list", function(e,data){
           $('#list').append("<li>"+data[e]+"</li>");
         });
         $('#list').listview("refresh");
-        $.mobile.hidePageLoadingMsg();
+        $('body').removeClass('ui-loading');
       },
       error: function(msg){
+        alert("error");
         alert(msg.responseText);
       }
     });
