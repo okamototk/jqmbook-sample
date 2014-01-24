@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>カラムトグル</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.css"/>
+<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
+</head>
+<body>
+  <div data-role="page" id="p-dialog-src">
+    <div data-role="header">
+      <h2>東北栽培面積</h2>
+    </div>
+    <div data-role="main">
+    
+    <table data-role="table" data-column-btn-text="選択" id="table-column-toggle" data-mode="columntoggle" class="ui-responsive table-stroke">
+     <thead>
+       <tr>
+         <th>県</th>
+         <th data-priority="2">野菜</th>         
+         <th data-priority="3">豆類</th>
+         <th data-priority="1">果樹</th>
+       </tr>
+     </thead>
+     <tbody>
+       <tr>
+         <th>青森</th>
+         <td>4,970</td>
+         <td>17,900</td>
+         <td>23,500</td>
+       </tr>
+       <tr>
+         <th>岩手</th>
+         <td>4,900</td>
+         <td>9,030</td>
+         <td>3,760</td>
+       </tr>
+       <tr>
+         <th>宮城</th>
+         <td>9,880</td>
+         <td>8,800</td>
+         <td>1,820</td>
+       </tr>
+       <tr>
+         <th>秋田</th>
+         <td>8,460</td>
+         <td>9,510</td>
+         <td>2,760</td>
+       </tr>
+       <tr>
+         <th>山形</th>
+         <td>6,520</td>
+         <td>11,100</td>
+         <td>10,900</td>
+       </tr>
+       <tr>
+         <th>福島</th>
+         <td>2,580</td>
+         <td>12,400</td>
+         <td>7,320</td>
+       </tr>
+     </tbody>
+   </table>     
+  </div>
+
+<!--  <div data-role="popup" id="dialog" data-overlay-theme="a" data-theme="c" data-dismissible="false" style="max-width:400px;"
+class="ui-corner-all">-->
+</div>
+</body>
+</html>

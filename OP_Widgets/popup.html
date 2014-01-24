@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>画面カスタマイズ</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.css"/>
+<style>
+.ui-header .ui-title {
+  margin: 0% 10%;
+}
+</style>
+<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
+</head>
+<body>
+  <div data-role="page" id="p-dialog-src">
+    <div data-role="header">
+      <h2>ポップアップ</h2>
+    </div>
+    <div data-role="main">
+      <a href="#dialog" data-role="button" data-rel="popup" data-position-to="window"
+      data-transition="pop">ポップアップで開く</a>
+  <div data-role="popup" id="dialog">
+    <div data-role="header">
+        <h1>確認</h1>
+    </div>
+    <div data-role="main">
+        <p>本当に削除しますか？</p>
+        <a href="#" data-role="button" data-inline="true" data-rel="back" data-theme="b">はい</a>        
+        <a href="#" data-role="button" data-inline="true" data-rel="back">いいえ</a>
+    </div>
+      
+    </div>
+  </div>
+
+<!--  <div data-role="popup" id="dialog" data-overlay-theme="a" data-theme="c" data-dismissible="false" style="max-width:400px;"
+class="ui-corner-all">-->
+</div>
+</body>
+</html>

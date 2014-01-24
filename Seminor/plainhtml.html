@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>普通のHTML</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+</head>
+<body>
+<h2>ユーザ登録</h2>
+  <form action="...">
+    <field>
+      <legend>名前:</legend>
+      <input type="text"/><br />
+    </field>
+    <field>
+      <legend>名前(よみ):</legend>
+      <input type="text"><br />
+    </field>
+    <field>
+      <legend>年齢:</legend>
+      <select>
+        <option value="10">10代</option>
+        <option value="20">20代</option>
+        <option value="30">30代</option>
+        <option value="40">40代</option>
+        <option value="50">50代</option>
+        <option value="60">60代</option>
+        <option value="70">70代</option>
+        <option value="80">80代</option>			
+      </select>
+    </field>
+    <fieldset>
+      <legend>性別:</legend>
+      <input type="radio" name="sex" id="sex1" value="male">
+      <label for="sex1">男</label>
+      <input type="radio" name="sex" id="sex2" value="female">
+      <label for="sex2">女</label>
+    </fieldset>
+    <input type="submit" value="送信" />
+  </form>
+</body>
+</html>

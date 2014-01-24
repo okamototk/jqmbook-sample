@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>パネル</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.css"/>
+<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
+</head>
+<body>
+  <div data-role="page" id="p-dialog-src">
+    <div data-role="header">
+      <a href="#mypanel" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-btn-icon-notext ui-icon-bullets" >戻る</a>
+      <h2>パネル</h2>
+    </div>
+    <div data-role="main">
+      <div data-role="tabs" id="tabs">
+        <div data-role="navbar">
+          <ul>
+            <li><a href="#one" data-ajax="false">タブ1</a></li>
+            <li><a href="#two" data-ajax="false">タブ2</a></li>
+            <li><a href="#three" data-ajax="false">タブ3</a></li>                        
+          </ul>
+        </div>
+<!--        <div id="one" class="ui-body-d ui-content">-->
+        <div id="one">
+        1つ目のタブ
+        </div>
+        <div id="two">
+        2つ目のタブ
+        </div>
+        <div id="three">
+        3つ目のタブ
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+<!--  <div data-role="popup" id="dialog" data-overlay-theme="a" data-theme="c" data-dismissible="false" style="max-width:400px;"
+class="ui-corner-all">-->
+</div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>パネル</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.css"/>
+<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
+</head>
+<body>
+  <div data-role="page" id="p-dialog-src">
+    <div data-role="header">
+      <a href="#menupanel" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-btn-icon-notext ui-icon-bullets">メニュー</a>
+      <h2>パネル</h2>
+    </div>
+    <div data-role="main"> 
+      これは、パネルのサンプルです。右上のメニューボタンを押すとパネルが表示されます。
+    </div>
+    
+    <div data-role="panel" id="menupanel" data-display="push" data-position="left"  data-theme="a">
+      <ul data-role="listview">
+        <li>メニュー</li>
+        <li><a href="#">りんご</a></li>
+        <li><a href="#">みかん</a></li>
+        <li><a href="#">ぶどう</a></li>
+        <li><a href="#">メロン</a></li>         
+      </ul>
+    </div>
+
+  </div>
+
+<!--  <div data-role="popup" id="dialog" data-overlay-theme="a" data-theme="c" data-dismissible="false" style="max-width:400px;"
+class="ui-corner-all">-->
+</div>
+</body>
+</html>

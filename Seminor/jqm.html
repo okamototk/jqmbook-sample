@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>3章 チュートリアル</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.css"/>
+<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
+</head>
+<body>
+<div data-role="page" id="p-menu">
+  <div data-role="main">
+  <h2>ユーザ登録</h2>
+  <form action="...">
+    <field>
+      <legend>名前:</legend>
+      <input type="text"/><br />
+    </field>
+    <field>
+      <legend>名前(よみ):</legend>
+      <input type="text"><br />
+    </field>
+    <field>
+      <legend>年齢:</legend>
+      <select>
+        <option value="10">10代</option>
+        <option value="20">20代</option>
+        <option value="30">30代</option>
+        <option value="40">40代</option>
+        <option value="50">50代</option>
+        <option value="60">60代</option>
+        <option value="70">70代</option>
+        <option value="80">80代</option>
+      </select>
+    </field>
+    <div data-role="fieldcontain">
+      <fieldset data-role="controlgroup">
+        <legend>性別:</legend>
+        <input type="radio" name="sex" id="sex1" value="male">
+        <label for="sex1">男</label>
+        <input type="radio" name="sex" id="sex2" value="female">
+        <label for="sex2">女</label>
+      </fieldset>
+    </div>
+    <button data-icon="action" data-iconpos="left <a class="ui-btn
+    ui-icon-action ui-btn-icon-left"">test</button>
+    <a class="ui-btn ui-icon-action ui-btn-icon-left">test</a>
+    <input type="submit" value="送信" />
+  </form>
+  </div>
+</body>
+</html>
